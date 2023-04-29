@@ -43,6 +43,11 @@ li {
   list-style-position: outside;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 * {
   box-sizing: border-box;
 }

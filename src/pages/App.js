@@ -6,6 +6,10 @@ import soundcloud from '../api/soundcloud';
 import Select from "@cloudscape-design/components/select";
 import { YouTubeEmbed } from './video';
 import { BGM } from './bgm';
+import { FaAlignJustify, FaQuestion, FaVolumeMute, FaYoutube } from 'react-icons/fa';
+import { BiShuffle } from 'react-icons/bi';
+import { GrClose } from 'react-icons/gr';
+import { IconContext } from 'react-icons';
 
 function App() {
   const [city, setCity] = useState("Tokyo");
@@ -44,7 +48,12 @@ const PopupMenu = props => {
   return (
     <div className={ "popupMenu" }>
       <div className={ "boxMenu" }>
-        <span className={ "closeMenuIcon" } onClick={props.handleClose}>x</span>
+        <span className={ "closeMenuIcon" } onClick={props.handleClose}>
+        <IconContext.Provider
+            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+            <GrClose/>
+        </IconContext.Provider>
+        </span>
         {props.content}
       </div>
     </div>
@@ -55,7 +64,12 @@ const Popup = props => {
   return (
     <div className={ "popupBox" }>
       <div className={ "box" }>
-        <span className={ "closeIcon" } onClick={props.handleClose}>x</span>
+        <span className={ "closeIcon" } onClick={props.handleClose}>
+        <IconContext.Provider
+            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+            <GrClose/>
+        </IconContext.Provider>
+        </span>
         {props.content}
       </div>
     </div>
@@ -77,11 +91,10 @@ const Menu = ({ setCity, cityName }) => {
 
   return (
     <div className={ "menuWrapper" }>
-      <input className={ "menuButton" }
+      <button className={ "menuButton" }
         type="button"
-        value="Menu"
         onClick={ toggleMenu }
-      />
+      ><FaAlignJustify/></button>
       {menuOpen && <PopupMenu
         content={
           <>
@@ -111,52 +124,54 @@ const Menu = ({ setCity, cityName }) => {
         }
         handleClose={toggleMenu}  
       />}
-      <input className={"helpBox"}
+      <button className={"helpBox"}
         type="button"
         value="?"
         onClick={togglePopup}
-        />
+      ><FaQuestion/></button>
       {isOpen && <Popup
         content={<>
-          <b>Credits</b>
-          <p>
+          <b>How to Use</b>
+          <IconContext.Provider
+            value={{style: { verticalAlign: 'middle'}}}
+          >
           <ul>
+            <FaAlignJustify/> <b>- Opens City Menu</b>
+          </ul>
+          <ul>
+            <BiShuffle/> <b>- Changes SoundCloud Playlist</b>
+          </ul>
+          <ul>
+            <FaVolumeMute/> <b>- Mutes/Unmutes Video</b>
+          </ul>
+          <ul>
+            <FaYoutube/> <b>- Current Video YouTube Link</b>
+          </ul>
+          </IconContext.Provider>
+          <b>Credits</b>
+          <ul>
+          <p>
             Website by <a href="https://twitter.com/ThatGuyEdd" 
                           target="_blank" rel="noopener noreferrer">
-            @ThatGuyEdd
+            <b><u>@ThatGuyEdd</u></b>
             </a> 
-          </ul>
-          <ul>    
+          </p>
+          <p>
             Videos from <a href="https://www.youtube.com/@Rambalac" 
                            target="_blank" rel="noopener noreferrer">
-            @Rambalac
+            <b><u>@Rambalac</u></b>
             </a>
-          </ul>
-          <ul>
-            Music player widget courtesy of SoundCloud.
-          </ul>
           </p>
+          <p>
+            Music player widget courtesy of SoundCloud.
+          </p>
+          <p>
+            All music are properties of their respective artists.
+          </p>
+          </ul>
         </>}
         handleClose={togglePopup}
       />}
-      <span className={ "ytRef" }>
-        <b>
-        Videos from <a className={ "ytRefLink" } 
-                      href="https://www.youtube.com/@Rambalac" 
-                      target="_blank" rel="noopener noreferrer">
-        @Rambalac
-        </a>
-        </b>
-      </span>
-      <span className={ "socials" }>
-        <b>
-        Website by <a className={ "socialsLink" } 
-                      href="https://twitter.com/ThatGuyEdd" 
-                      target="_blank" rel="noopener noreferrer">
-        @ThatGuyEdd
-        </a>
-        </b>
-      </span>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import '../styles/App.css';
 import React from "react";
 import YouTube from 'react-youtube';
-import { FaVolumeUp, FaVolumeMute } from "react-icons/fa";
+import { FaVolumeUp, FaVolumeMute, FaYoutube } from "react-icons/fa";
 
 export const YouTubeEmbed = ({ videoList }) => {  
     let currVideo = videoList[Math.floor(Math.random() * videoList.length)];
@@ -68,9 +68,9 @@ export const YouTubeEmbed = ({ videoList }) => {
             <a className={ "vidLink" } 
             href={ 'https://www.youtube.com/watch?v=' + currVideo }
             target="_blank" rel="noopener noreferrer">
-            <b>
-            Current Video
-            </b>
+            <button className={"vidLinkButton"}>
+                <FaYoutube className={"vidLinkIcon"}/>
+            </button>
             </a>
         </div>
         </>
