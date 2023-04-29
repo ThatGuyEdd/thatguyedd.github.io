@@ -1,8 +1,10 @@
 /* eslint-disable */
 
+var SC;
+
 export const soundcloud = () => {
 {
-    var SC = "object" == typeof SC ? SC : {};
+    SC = "object" == typeof SC ? SC : {};
     SC.Widget = function(e) {
         var t = {};
 
