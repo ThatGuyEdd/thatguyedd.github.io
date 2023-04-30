@@ -31,7 +31,8 @@ function App() {
   cityVideos.set('Fukushima'  ,   fukushimaVideos);
   cityVideos.set('Hiroshima'  ,   hiroshimaVideos);
 
-  setTimeout(function() { soundcloud() }, 500);
+  const playMusic = () => { soundcloud() };
+  setTimeout(function() { playMusic() }, 500);
 
   return (
     <>
@@ -146,6 +147,12 @@ const Menu = ({ setCity, cityName }) => {
           </ul>
           <ul>
             <FaYoutube/> <b>- Current Video YouTube Link</b>
+          </ul>
+          <ul>
+            <b>
+              Hover over the music player in the upper left to view the current playlist.
+              Use the slider to change the music volume.
+            </b>
           </ul>
           </IconContext.Provider>
           <b>Credits</b>

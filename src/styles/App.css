@@ -48,9 +48,9 @@
 .boxMenu {
   z-index: 3;
   position: fixed;
-  top: 40px;
+  top: 63px;
   right: 0%;
-  width: 250px;
+  width: 200px;
   margin: 0;
   min-height: 10vh;
   background-color: rgba(255,255,255,0.5);
@@ -191,6 +191,18 @@
   transform: scale(1.5);
 }
 
+.volSlider {
+  z-index: 2;
+  top: 40px;
+  right: 4px;
+  height: 10px;
+  width: 173px;
+  filter: opacity(0.3);
+  position: fixed;
+  background: white;
+  transition: all 0.2s;
+}
+
 /* ----- Social Links ----- */
 
 .vidLink {
@@ -291,6 +303,7 @@
 .rtRefLink:hover      ,   .vidLink:hover, 
 .muteButton:hover     ,   .muteIcon:hover,
 .shuffleButton:hover  ,   .shuffleIcon:hover,
-.menuButton:hover     ,    .closeMenuIcon:hover {
+.menuButton:hover     ,    .closeMenuIcon:hover,
+.volSlider:hover {
   filter: opacity(1) drop-shadow(2px 4px 6px black);
 }

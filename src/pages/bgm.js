@@ -1,23 +1,36 @@
 import '../styles/App.css';
 import React, { useState } from "react";
 import { BiShuffle } from "react-icons/bi";
-import soundcloud from '../api/soundcloud';
+import soundcloud from "../api/soundcloud";
 
-export const BGM = React.memo(() => {
+export const BGM = React.memo(() => {    
     const playlist = ["263367934","300494469","483718232","545610837","783832791",
                       "655383102","305665701","799182711","1234281943","356635769"];
     let randPlaylist = playlist[Math.floor(Math.random() * playlist.length)];
-  
+    
     const trackParams = 
         "&color=%23000000&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true";
-  
+    
     const[shuffle, setShuffle] = useState(randPlaylist);
-  
+    
     const shufflePlaylist = () => {
         setShuffle(playlist[Math.floor(Math.random() * playlist.length)]);
         randPlaylist = shuffle;
-        setTimeout(function() { soundcloud() }, 500);
     };
+
+    const vol = document.getElementById("volume");
+    let volume;
+    setTimeout
+    (
+        function() {
+            let update = () => { 
+                volume = vol.value; console.log("volume: ", vol.value);
+                soundcloud().setVolume(volume);
+            } 
+            vol.addEventListener('input', update);
+            update();
+        }
+    ,1000);
   
     return (
         <>
@@ -25,6 +38,7 @@ export const BGM = React.memo(() => {
             <button className="shuffleButton" onClick={ shufflePlaylist }>
                 <BiShuffle className="shuffleIcon"/>
             </button>
+            <input className="volSlider" id="volume" type="range" min="0" max="100" step="1"></input>
         </div>
         <div className="music">
             <iframe id="bgm" title="bgmiframe"

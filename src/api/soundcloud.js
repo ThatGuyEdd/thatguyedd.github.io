@@ -1,8 +1,9 @@
 /* eslint-disable */
 
-var SC;
+const soundcloud = () => {
+let SC;
+let player;
 
-export const soundcloud = () => {
 {
     SC = "object" == typeof SC ? SC : {};
     SC.Widget = function(e) {
@@ -244,12 +245,10 @@ export const soundcloud = () => {
         }
     }]);
     
-    var player = SC.Widget('bgm');
-    player.setVolume(10);
-    setTimeout(function() { player.setVolume(10) }, 500);
-    setTimeout(function() { player.setVolume(10) }, 750);
-    setTimeout(function() { player.setVolume(10) }, 1000);
+    player = SC.Widget('bgm');
 }
+
+return player;
 };
 
 export default soundcloud;
