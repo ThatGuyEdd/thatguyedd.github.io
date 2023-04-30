@@ -175,6 +175,7 @@ const Menu = ({ setCity, cityName }) => {
             All music are properties of their respective artists.
           </p>
           </ul>
+          <sub>Site last updated 4/29/2023.</sub>
         </>}
         handleClose={togglePopup}
       />}

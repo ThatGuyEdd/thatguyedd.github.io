@@ -14,6 +14,8 @@ export const BGM = React.memo(() => {
     const[shuffle, setShuffle] = useState(randPlaylist);
     
     const shufflePlaylist = () => {
+        vol = document.getElementById("volume");
+        soundcloud().setVolume(vol.value);
         setShuffle(playlist[Math.floor(Math.random() * playlist.length)]);
         randPlaylist = shuffle;
     };
@@ -25,10 +27,9 @@ export const BGM = React.memo(() => {
         function() {
             vol = document.getElementById("volume");
             let update = () => { 
-                volume = vol.value; console.log("volume: ", vol.value);
+                volume = vol.value;
                 soundcloud().setVolume(volume);
             }
-            console.log("typeof: ", vol); 
             vol.addEventListener('input', update);
             if(vol) {
                 update();
