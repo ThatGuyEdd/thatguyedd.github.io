@@ -18,20 +18,23 @@ export const BGM = React.memo(() => {
         randPlaylist = shuffle;
     };
 
-    const vol = document.getElementById("volume");
+    let vol;
     let volume;
     setTimeout
     (
         function() {
+            vol = document.getElementById("volume");
             let update = () => { 
                 volume = vol.value; console.log("volume: ", vol.value);
                 soundcloud().setVolume(volume);
-            } 
+            }
+            console.log("typeof: ", vol); 
             vol.addEventListener('input', update);
-            update();
+            if(vol) {
+                update();
+            }
         }
     ,1000);
-  
     return (
         <>
         <div className="menuWrapper">

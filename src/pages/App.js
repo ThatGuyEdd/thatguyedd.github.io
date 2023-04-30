@@ -31,8 +31,7 @@ function App() {
   cityVideos.set('Fukushima'  ,   fukushimaVideos);
   cityVideos.set('Hiroshima'  ,   hiroshimaVideos);
 
-  const playMusic = () => { soundcloud() };
-  setTimeout(function() { playMusic() }, 500);
+  setTimeout(function() { soundcloud() }, 500);
 
   return (
     <>
