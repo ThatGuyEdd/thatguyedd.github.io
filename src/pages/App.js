@@ -12,7 +12,7 @@ import { GrClose } from 'react-icons/gr';
 import { IconContext } from 'react-icons';
 
 function App() {
-  const [city, setCity] = useState("Tokyo");
+  const [city, setCity] = useState("Loading");
   
   const tokyoVideos     = ["YWPbaHNajbs","mHO8mJSZdJ0","s-rhii6znMU","0yEJWXLg7Qk","ZCVu6MDQZdg"];
   const osakaVideos     = ["GJZLXiNOqqA","ThenfmXRbkQ","pu9BorxYjBQ","XHD2KtDXClc","ahZbCdrUVaQ"];
@@ -21,6 +21,7 @@ function App() {
   const sendaiVideos    = ["cHjKckxsOCs","Mo31lwe_gv4"];
   const fukushimaVideos = ["gOkDSGzt07M","z5KoGXkECPg"];
   const hiroshimaVideos = ["NxXevpGGFBM","9UMn6CVizOw"];
+  const loading = ["-pdVUsCqd2U"];
 
   const cityVideos = new Map();
   cityVideos.set('Tokyo'      ,   tokyoVideos);
@@ -30,6 +31,7 @@ function App() {
   cityVideos.set('Sendai'     ,   sendaiVideos);
   cityVideos.set('Fukushima'  ,   fukushimaVideos);
   cityVideos.set('Hiroshima'  ,   hiroshimaVideos);
+  cityVideos.set('Loading'    ,   loading);
 
   setTimeout(function() { soundcloud() }, 500);
 
@@ -77,7 +79,7 @@ const Popup = props => {
 };
 
 const Menu = ({ setCity }) => {
-  const [localCity, setLocalCity] = useState({ label: "Tokyo", value: "Tokyo" });  
+  const [localCity, setLocalCity] = useState({ label: "Select City", value: "Loading" });  
 
   const [isOpen, setIsOpen] = useState(true);
   const togglePopup = () => {
@@ -102,20 +104,20 @@ const Menu = ({ setCity }) => {
               <label><b>Choose City</b></label>
               <Select
                 className="citySelector"
-                selectedOption={localCity}
                 placeholder="Select City"
+                selectedOption={localCity}
                 onChange={(e) => {
                   setLocalCity(e.detail.selectedOption);
                   setCity(e.detail.selectedOption.value);
                 }}
                 options={[
-                  { label: "Tokyo", value: "Tokyo" },
-                  { label: "Osaka", value: "Osaka" },
-                  { label: "Kyoto", value: "Kyoto" },
-                  { label: "Sapporo", value: "Sapporo" },
-                  { label: "Sendai", value: "Sendai" },
                   { label: "Fukushima", value: "Fukushima" },
                   { label: "Hiroshima", value: "Hiroshima" },
+                  { label: "Kyoto", value: "Kyoto" },
+                  { label: "Osaka", value: "Osaka" },
+                  { label: "Tokyo", value: "Tokyo" },
+                  { label: "Sapporo", value: "Sapporo" },
+                  { label: "Sendai", value: "Sendai" },
                 ]}
                 selectedAriaLabel="Selected"
               />

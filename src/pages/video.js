@@ -3,6 +3,8 @@ import React from "react";
 import YouTube from 'react-youtube';
 import { FaVolumeUp, FaVolumeMute, FaYoutube } from "react-icons/fa";
 
+let init = true;
+
 export const YouTubeEmbed = ({ videoList }) => {  
     let currVideo = videoList[Math.floor(Math.random() * videoList.length)];
     let player;
@@ -13,6 +15,8 @@ export const YouTubeEmbed = ({ videoList }) => {
         void event.target.playVideo();
         player = event;
         currVideo = player.target.getVideoUrl();
+        init = false;
+        console.log(init);
     }
   
     const onEnd = (event) => {
@@ -21,14 +25,26 @@ export const YouTubeEmbed = ({ videoList }) => {
         player = event;
         currVideo = player.target.getVideoUrl();
     }
-  
-    const opts = {
+    
+    let initOpts = {
         playerVars: {
             autoplay: 1,
             controls: 0,
             modestbranding: 1,
             rel: 0,
             loop: 1,
+            mute: 1,
+        }
+    }
+
+    let opts = {
+        playerVars: {
+            autoplay: 1,
+            controls: 0,
+            modestbranding: 1,
+            rel: 0,
+            loop: 1,
+            mute: 0,
         }
     }
     
@@ -59,7 +75,7 @@ export const YouTubeEmbed = ({ videoList }) => {
             <div className={ "videoResponsive" }>        
             <YouTube id="player"
             videoId={ currVideo } 
-            opts={ opts } 
+            opts={ init ? initOpts : opts } 
             onReady={ onPlayerReady }
             onEnd={ onEnd }
             />
