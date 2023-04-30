@@ -261,10 +261,8 @@
 .box {
   z-index: 2;
   position: relative;
-  width: 50%;
   margin: 0 auto;
-  height: auto;
-  max-height: 100vh;
+  max-width: 600px;
   margin-top: calc(100vh - 85vh - 20px);
   background: rgb(211, 211, 211, 0.75);
   border-radius: 10px;
