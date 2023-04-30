@@ -151,7 +151,7 @@ const Menu = ({ setCity }) => {
           </ul>
           <ul>
             <b>
-              Hover over the music player on the upper left to view the current playlist.
+              Hover over the music player on the upper left to play/pause and view the current playlist.
               Use the slider below the control buttons to change the music volume.
             </b>
           </ul>
