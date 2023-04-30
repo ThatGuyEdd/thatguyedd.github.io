@@ -63,12 +63,10 @@
 
 .closeMenuIcon {
   z-index: 3;
-  content: 'x';
   font-family: Arial, monospace;
-  cursor: pointer;
   position: fixed;
   right: calc(2%);
-  top: calc(3%);
+  top: calc(4%);
   background: #ededed;
   width: 25px;
   height: 25px;
@@ -263,12 +261,12 @@
 .box {
   z-index: 2;
   position: relative;
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
   height: auto;
-  max-height: 70vh;
+  max-height: 100vh;
   margin-top: calc(100vh - 85vh - 20px);
-  background: lightgray;
+  background: rgb(211, 211, 211, 0.75);
   border-radius: 10px;
   padding: 20px;
   border: 1px solid black;
@@ -278,10 +276,8 @@
 }
 
 .closeIcon {
-  z-index: 30;
-  content: 'x';
+  z-index: 10;
   font-family: Arial, monospace;
-  cursor: pointer;
   position: fixed;
   right: calc(1.5%);
   top: calc(2%);
@@ -295,6 +291,10 @@
   font-size: 20px;
   filter: opacity(0.3);
   transition: all 0.2s;
+}
+
+.helpBoxTitle {
+  margin-top :0;
 }
 
 /* ----- General Hover Stylings ----- */
