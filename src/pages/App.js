@@ -6,7 +6,7 @@ import soundcloud from '../api/soundcloud';
 import Select from "@cloudscape-design/components/select";
 import { YouTubeEmbed } from './video';
 import { BGM } from './bgm';
-import { FaAlignJustify, FaQuestion, FaVolumeMute, FaYoutube } from 'react-icons/fa';
+import { FaAlignJustify, FaQuestion, FaVolumeMute, FaYoutube, FaCoffee } from 'react-icons/fa';
 import { BiShuffle } from 'react-icons/bi';
 import { GrClose } from 'react-icons/gr';
 import { IconContext } from 'react-icons';
@@ -131,7 +131,7 @@ const Menu = ({ setCity }) => {
       ><FaQuestion/></button>
       {isOpen && <Popup
         content={<>
-          <h3 className={ "helpBoxTitle" }>Japan Walkaround</h3>
+          <h3 className={ "helpBoxTitle" }>Japan Walkaround 🗾 日本に歩き回る</h3>
           <b>How to Use</b>
           <IconContext.Provider
             value={{style: { verticalAlign: 'middle'}}}
@@ -155,7 +155,6 @@ const Menu = ({ setCity }) => {
               Use the slider below the control buttons to change the music volume.
             </b>
           </ul>
-          </IconContext.Provider>
           <b>Credits</b>
           <ul>
           <p>
@@ -177,7 +176,13 @@ const Menu = ({ setCity }) => {
             All music are properties of their respective artists.
           </p>
           </ul>
-          <sub>Site last updated 4/29/2023.</sub>
+          <sub>
+            <FaCoffee/> Want to buy me a <a href="https://ko-fi.com/thatguyedd" 
+                                          target="_blank" rel="noopener noreferrer">
+            <b><u>coffee</u></b>
+            </a>?
+            </sub>
+          </IconContext.Provider>
         </>}
         handleClose={togglePopup}
       />}
