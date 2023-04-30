@@ -8,6 +8,7 @@ export const YouTubeEmbed = ({ videoList }) => {
     let player;
   
     const onPlayerReady = (event) => {    
+        event.target.getIframe().autoplay = "allow";
         void event.target.setVolume(10);
         void event.target.playVideo();
         player = event;
