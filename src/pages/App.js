@@ -136,6 +136,7 @@ const Menu = ({ setCity }) => {
           <IconContext.Provider
             value={{style: { verticalAlign: 'middle'}}}
           >
+          <ul><b>Controls are on the upper right of the screen.</b></ul>
           <ul>
             <FaAlignJustify/> <b>- Opens City Menu</b>
           </ul>
@@ -150,8 +151,8 @@ const Menu = ({ setCity }) => {
           </ul>
           <ul>
             <b>
-              Hover over the music player in the upper left to view the current playlist.
-              Use the slider to change the music volume.
+              Hover over the music player on the upper left to view the current playlist.
+              Use the slider below the control buttons to change the music volume.
             </b>
           </ul>
           </IconContext.Provider>
