@@ -19,6 +19,7 @@ export const BGM = React.memo(() => {
     const shufflePlaylist = () => {
         vol = document.getElementById("volume");
         soundcloud().setVolume(vol.value);
+        setTimeout(function() { soundcloud().play() }, 2000);
         setShuffle(playlist[Math.floor(Math.random() * playlist.length)]);
         randPlaylist = shuffle;
     };

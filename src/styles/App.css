@@ -49,6 +49,7 @@
   right: 0%;
   width: 225px;
   margin: 0;
+  height: 125px;
   min-height: 10vh;
   background-color: rgba(255,255,255,0.5);
   border-radius: 10px;
@@ -263,6 +264,7 @@
   padding: 20px;
   border: 1px solid black;
   font-family: Arial, monospace;
+  padding-bottom: 50px;
   filter: drop-shadow(2px 4px 6px black);
 }
 
@@ -287,6 +289,85 @@
   margin-top :0;
 }
 
+.dontShowPopup {
+  z-index: 5;
+  top: 460px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid black;
+  border-radius: 10%;
+  background: rgb(255,255,255,0.75);
+  position: absolute;
+  color: black;
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
+
+/*----- Credits -----*/
+
+.credits {
+  z-index: 5;
+  position: relative;
+  height: fit-content;
+  font-family: Arial, monospace;
+}
+
+.creditsBox {
+  z-index: 5;
+  top: 80px;
+  right: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid black;
+  border-radius: 10%;
+  background: rgb(255,255,255,0.75);
+  position: absolute;
+  color: black;
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
+
+.popupCredits {
+  z-index: 5;
+  position: fixed;
+  background: none;
+}
+
+.boxCredits {
+  z-index: 5;
+  position: relative;
+  margin: 0;
+  height: fit-content;
+  width: 50vw;
+  max-width: 500px;
+  min-width: 350px;
+  background: rgb(211, 211, 211, 0.75);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid black;
+  font-family: Arial, monospace;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.closeCreditsIcon {
+  z-index: 5;
+  position: fixed;
+  right: calc(1%);
+  top: calc(2%);
+  background: #ededed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1.5px solid black;
+  font-size: 20px;
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
+
 /* ----- General Hover Stylings ----- */
 
 .closeIcon:hover      ,   .helpBox:hover,
@@ -294,6 +375,7 @@
 .muteButton:hover     ,   .muteIcon:hover,
 .shuffleButton:hover  ,   .shuffleIcon:hover,
 .menuButton:hover     ,   .closeMenuIcon:hover,
-.volSlider:hover {
+.creditsBox:hover     ,   .closeCreditsIcon:hover,
+.volSlider:hover      ,   .dontShowPopup:hover {
   filter: opacity(1) drop-shadow(2px 4px 6px black);
 }

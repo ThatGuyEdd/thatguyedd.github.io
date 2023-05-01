@@ -12,6 +12,7 @@ import { BiShuffle } from 'react-icons/bi';
 import { GrClose } from 'react-icons/gr';
 import { IconContext } from 'react-icons';
 
+
 function App() {
   const [city, setCity] = useState("Loading");
   
@@ -87,17 +88,43 @@ const Popup = props => {
   );
 };
 
+const PopupCredits = props => {
+  return (
+    <div className={ "popupCredits" }>
+      <div className={ "boxCredits" }>
+        <span className={ "closeCreditsIcon" } onClick={props.handleClose}>
+        <IconContext.Provider
+            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+            <GrClose/>
+        </IconContext.Provider>
+        </span>
+        {props.content}
+      </div>
+    </div>
+  );
+};
+
 const Menu = ({ setCity }) => {
   const [localCity, setLocalCity] = useState({ label: "Select City", value: "Loading" });  
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(localStorage.getItem("showPopup") === "true");
   const togglePopup = () => {
     setIsOpen(!isOpen);
+    localStorage.setItem("showPopup", "true");
   }
+  const toggleShowPopup = () => {
+    setIsOpen(!isOpen);
+    localStorage.setItem("showPopup", "false");
+    }
   
   const [menuOpen, setMenuOpen] = useState(true);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  }
+
+  const [creditsOpen, setCreditsOpen] = useState(false);
+  const toggleCredits = () => {
+    setCreditsOpen(!creditsOpen);
   }
 
   return (
@@ -134,17 +161,51 @@ const Menu = ({ setCity }) => {
                   { label: "Sendai", value: "Sendai" },
                 ]}
               />
+              <button className={"creditsBox"}
+                type="button"
+                onClick={toggleCredits}
+              >
+                <b><u>Credits</u></b>
+              </button>
             </div>       
           </>
         }
         handleClose={toggleMenu}  
+      />}
+      {creditsOpen && <PopupCredits
+        content={
+          <div className="credits">
+          <b>Credits</b>
+          <ul>
+          <p>
+            Website by <a href="https://twitter.com/ThatGuyEdd" 
+                          target="_blank" rel="noopener noreferrer">
+            <b><u>@ThatGuyEdd</u></b>
+            </a> 
+          </p>
+          <p>
+            Videos from <a href="https://www.youtube.com/@Rambalac" 
+                          target="_blank" rel="noopener noreferrer">
+            <b><u>@Rambalac</u></b>
+            </a>
+          </p>
+          <p>
+            Music player widget courtesy of SoundCloud.
+          </p>
+          <p>
+            All music are properties of their respective artists.
+          </p>
+          </ul>
+          </div>
+        }
+        handleClose={toggleCredits}
       />}
       <button className={"helpBox"}
         type="button"
         value="?"
         onClick={togglePopup}
       ><FaQuestion/></button>
-      {isOpen && <Popup
+      {isOpen && localStorage.getItem("showPopup") && <Popup
         content={<>
           <h3 className={ "helpBoxTitle" }>Japan Walkaround 🗾 日本に歩き回る</h3>
           <ul>
@@ -180,33 +241,18 @@ const Menu = ({ setCity }) => {
           <ul>
             <FaYoutube/> <b>- Current Video YouTube Link</b>
           </ul>
-          <b>Credits</b>
-          <ul>
-          <p>
-            Website by <a href="https://twitter.com/ThatGuyEdd" 
-                          target="_blank" rel="noopener noreferrer">
-            <b><u>@ThatGuyEdd</u></b>
-            </a> 
-          </p>
-          <p>
-            Videos from <a href="https://www.youtube.com/@Rambalac" 
-                           target="_blank" rel="noopener noreferrer">
-            <b><u>@Rambalac</u></b>
-            </a>
-          </p>
-          <p>
-            Music player widget courtesy of SoundCloud.
-          </p>
-          <p>
-            All music are properties of their respective artists.
-          </p>
-          </ul>
           <sub>
             <FaCoffee/> Want to buy me a <a href="https://ko-fi.com/thatguyedd" 
                                           target="_blank" rel="noopener noreferrer">
             <b><u>coffee</u></b>
             </a>?
-            </sub>
+          </sub>
+          <sub>
+            <button className="dontShowPopup"
+            onClick={ toggleShowPopup }>
+              <b>Close & Don't Show Again</b>
+            </button>
+          </sub>
           </IconContext.Provider>
         </>}
         handleClose={togglePopup}
