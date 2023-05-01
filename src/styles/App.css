@@ -248,7 +248,6 @@
   z-index: 5;
   position: fixed;
   background: none;
-  top: 10vh;
 }
 
 .box {
@@ -256,11 +255,11 @@
   position: relative;
   margin: 0;
   width: 600px;
+  max-height: fit-content;
   background: rgb(211, 211, 211, 0.75);
   border-radius: 10px;
   padding: 20px;
   border: 1px solid black;
-  overflow: hidden;
   font-family: Arial, monospace;
   filter: drop-shadow(2px 4px 6px black);
 }

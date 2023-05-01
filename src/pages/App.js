@@ -21,6 +21,7 @@ function App() {
   const sendaiVideos    = ["cHjKckxsOCs","Mo31lwe_gv4"];
   const fukushimaVideos = ["gOkDSGzt07M","z5KoGXkECPg"];
   const hiroshimaVideos = ["NxXevpGGFBM","9UMn6CVizOw"];
+  const aomoriVideos    = ["kaB2sXvRqgY","MKyJdahuo-U"];
   const loading = ["-pdVUsCqd2U"];
 
   const cityVideos = new Map();
@@ -31,6 +32,7 @@ function App() {
   cityVideos.set('Sendai'     ,   sendaiVideos);
   cityVideos.set('Fukushima'  ,   fukushimaVideos);
   cityVideos.set('Hiroshima'  ,   hiroshimaVideos);
+  cityVideos.set('Aomori'     ,   aomoriVideos);
   cityVideos.set('Loading'    ,   loading);
 
   setTimeout(function() { soundcloud() }, 500);
@@ -111,6 +113,7 @@ const Menu = ({ setCity }) => {
                   setCity(e.detail.selectedOption.value);
                 }}
                 options={[
+                  { label: "Aomori", value: "Aomori"},
                   { label: "Fukushima", value: "Fukushima" },
                   { label: "Hiroshima", value: "Hiroshima" },
                   { label: "Kyoto", value: "Kyoto" },
@@ -134,11 +137,27 @@ const Menu = ({ setCity }) => {
       {isOpen && <Popup
         content={<>
           <h3 className={ "helpBoxTitle" }>Japan Walkaround 🗾 日本に歩き回る</h3>
+          <ul>
+            <i>
+              Listen to lofi music while walking around Japan. 
+            </i>
+          <br></br>
+          <sub>
+            Site is currently for desktop only. Mobile version is in development.
+          </sub>
+          </ul>
           <b>How to Use</b>
           <IconContext.Provider
             value={{style: { verticalAlign: 'middle'}}}
           >
-          <ul><b>Controls are on the upper right of the screen.</b></ul>
+          <ul><b>Controls</b> are on the upper right of the screen.</ul>
+          <ul>
+              Mouseover the <b>music player</b> on the upper left to play/pause and view the current playlist.
+              Use the <b>slider</b> below the control buttons to change the music volume.
+          </ul>
+          <ul>
+            <FaQuestion/> <b>- Opens Help Menu</b>
+          </ul>
           <ul>
             <FaAlignJustify/> <b>- Opens City Menu</b>
           </ul>
@@ -150,12 +169,6 @@ const Menu = ({ setCity }) => {
           </ul>
           <ul>
             <FaYoutube/> <b>- Current Video YouTube Link</b>
-          </ul>
-          <ul>
-            <b>
-              Hover over the music player on the upper left to play/pause and view the current playlist.
-              Use the slider below the control buttons to change the music volume.
-            </b>
           </ul>
           <b>Credits</b>
           <ul>
