@@ -291,7 +291,7 @@
 
 .dontShowPopup {
   z-index: 5;
-  top: 460px;
+  bottom: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
