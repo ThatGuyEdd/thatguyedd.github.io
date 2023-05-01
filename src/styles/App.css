@@ -418,7 +418,7 @@
     top: -1%;
     left: -2%;
     height: 125px;
-    width: 230px;
+    width: 200px;
     position: absolute;
     border: none;
     transition: all 0.2s;
@@ -426,14 +426,14 @@
 
   .music iframe {
     height: 125px;
-    width: 230px;
+    width: 200px;
     filter: opacity(0.1);
     transition: all 0.2s;
   }
 
   .music iframe:hover {
-    height: 450px;
-    width: 450px;
+    height: 350px;
+    width: 200px;
     filter: opacity(1) drop-shadow(2px 4px 6px black);
   }
 }
