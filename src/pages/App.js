@@ -156,9 +156,9 @@ const Menu = ({ setCity }) => {
                   { label: "Kyoto", value: "Kyoto" },
                   { label: "Nara", value: "Nara"},
                   { label: "Osaka", value: "Osaka" },
-                  { label: "Tokyo", value: "Tokyo" },
                   { label: "Sapporo", value: "Sapporo" },
                   { label: "Sendai", value: "Sendai" },
+                  { label: "Tokyo", value: "Tokyo" },
                 ]}
               />
               <button className={"creditsBox"}
