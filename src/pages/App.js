@@ -6,7 +6,8 @@ import soundcloud from '../api/soundcloud';
 import Select from "@cloudscape-design/components/select";
 import { YouTubeEmbed } from './video';
 import { BGM } from './bgm';
-import { FaAlignJustify, FaQuestion, FaVolumeUp, FaYoutube, FaCoffee } from 'react-icons/fa';
+import { FaAlignJustify, FaQuestion, FaVolumeUp, FaYoutube, FaTwitterSquare, 
+         FaYoutubeSquare, FaCoffee, FaGripLinesVertical } from 'react-icons/fa';
 import { BiShuffle } from 'react-icons/bi';
 import { GrClose } from 'react-icons/gr';
 import { IconContext } from 'react-icons';
@@ -14,25 +15,31 @@ import { IconContext } from 'react-icons';
 function App() {
   const [city, setCity] = useState("Loading");
   
-  const tokyoVideos     = ["YWPbaHNajbs","mHO8mJSZdJ0","s-rhii6znMU","0yEJWXLg7Qk","ZCVu6MDQZdg"];
-  const osakaVideos     = ["GJZLXiNOqqA","ThenfmXRbkQ","pu9BorxYjBQ","XHD2KtDXClc","ahZbCdrUVaQ"];
-  const kyotoVideos     = ["Se15xH-IuMQ","rAeN7TdGq4o","yqf4pUWzP4Q","kd-OLM-6GRE","aaaxRIBPbXE"];
-  const sapporoVideos   = ["aDCwZIUop6s","f6E1rTfwIWc","w46op-H-TsQ"];
-  const sendaiVideos    = ["cHjKckxsOCs","Mo31lwe_gv4"];
+  const aomoriVideos    = ["kaB2sXvRqgY","MKyJdahuo-U"];
+  const fukuokaVideos   = ["IzvoQ8fcgNU"];
   const fukushimaVideos = ["gOkDSGzt07M","z5KoGXkECPg"];
   const hiroshimaVideos = ["NxXevpGGFBM","9UMn6CVizOw"];
-  const aomoriVideos    = ["kaB2sXvRqgY","MKyJdahuo-U"];
+  const kobeVideos      = ["mHXp_o0beOE"];
+  const kyotoVideos     = ["Se15xH-IuMQ","rAeN7TdGq4o","yqf4pUWzP4Q","kd-OLM-6GRE","aaaxRIBPbXE"];
+  const naraVideos      = ["P8z1ABmXRy8"];
+  const osakaVideos     = ["GJZLXiNOqqA","ThenfmXRbkQ","pu9BorxYjBQ","XHD2KtDXClc","ahZbCdrUVaQ"];
+  const sapporoVideos   = ["aDCwZIUop6s","f6E1rTfwIWc","w46op-H-TsQ"];
+  const sendaiVideos    = ["cHjKckxsOCs","Mo31lwe_gv4"];
+  const tokyoVideos     = ["YWPbaHNajbs","mHO8mJSZdJ0","s-rhii6znMU","0yEJWXLg7Qk","ZCVu6MDQZdg"];
   const loading = ["-pdVUsCqd2U"];
 
   const cityVideos = new Map();
-  cityVideos.set('Tokyo'      ,   tokyoVideos);
-  cityVideos.set('Osaka'      ,   osakaVideos);
-  cityVideos.set('Kyoto'      ,   kyotoVideos);
-  cityVideos.set('Sapporo'    ,   sapporoVideos);
-  cityVideos.set('Sendai'     ,   sendaiVideos);
+  cityVideos.set('Aomori'     ,   aomoriVideos);
+  cityVideos.set('Fukuoka'    ,   fukuokaVideos);
   cityVideos.set('Fukushima'  ,   fukushimaVideos);
   cityVideos.set('Hiroshima'  ,   hiroshimaVideos);
-  cityVideos.set('Aomori'     ,   aomoriVideos);
+  cityVideos.set('Kobe'       ,   kobeVideos);
+  cityVideos.set('Kyoto'      ,   kyotoVideos);
+  cityVideos.set('Nara'       ,   naraVideos);
+  cityVideos.set('Osaka'      ,   osakaVideos);
+  cityVideos.set('Sapporo'    ,   sapporoVideos);
+  cityVideos.set('Sendai'     ,   sendaiVideos);
+  cityVideos.set('Tokyo'      ,   tokyoVideos);
   cityVideos.set('Loading'    ,   loading);
 
   setTimeout(function() { soundcloud() }, 500);
@@ -114,15 +121,17 @@ const Menu = ({ setCity }) => {
                 }}
                 options={[
                   { label: "Aomori", value: "Aomori"},
+                  { label: "Fukuoka", value: "Fukuoka"},
                   { label: "Fukushima", value: "Fukushima" },
                   { label: "Hiroshima", value: "Hiroshima" },
+                  { label: "Kobe", value: "Kobe"},
                   { label: "Kyoto", value: "Kyoto" },
+                  { label: "Nara", value: "Nara"},
                   { label: "Osaka", value: "Osaka" },
                   { label: "Tokyo", value: "Tokyo" },
                   { label: "Sapporo", value: "Sapporo" },
                   { label: "Sendai", value: "Sendai" },
                 ]}
-                selectedAriaLabel="Selected"
               />
             </div>       
           </>
@@ -139,11 +148,11 @@ const Menu = ({ setCity }) => {
           <h3 className={ "helpBoxTitle" }>Japan Walkaround 🗾 日本に歩き回る</h3>
           <ul>
             <i>
-              Listen to lofi music while walking around Japan. 
+              Lofi music with videos of Japan.
             </i>
           <br></br>
           <sub>
-            Site is currently for desktop only. Mobile version is in development.
+            Site is currently for desktop only. Mobile version in development.
           </sub>
           </ul>
           <b>How to Use</b>
