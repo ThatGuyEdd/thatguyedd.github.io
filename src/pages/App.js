@@ -116,6 +116,7 @@ const Menu = ({ setCity }) => {
                 placeholder="Select City"
                 selectedOption={localCity}
                 onChange={(e) => {
+                  soundcloud().play();
                   setLocalCity(e.detail.selectedOption);
                   setCity(e.detail.selectedOption.value);
                 }}
