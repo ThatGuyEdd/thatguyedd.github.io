@@ -212,10 +212,6 @@ const Menu = ({ setCity }) => {
             <i>
               Lofi music with videos of Japan.
             </i>
-          <br></br>
-          <sub>
-            Site is currently for desktop only. Mobile version in development.
-          </sub>
           </ul>
           <b>How to Use</b>
           <IconContext.Provider
