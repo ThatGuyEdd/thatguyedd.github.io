@@ -6,7 +6,7 @@ import soundcloud from '../api/soundcloud';
 import Select from "@cloudscape-design/components/select";
 import { YouTubeEmbed } from './video';
 import { BGM } from './bgm';
-import { FaAlignJustify, FaQuestion, FaVolumeMute, FaYoutube, FaCoffee } from 'react-icons/fa';
+import { FaAlignJustify, FaQuestion, FaVolumeUp, FaYoutube, FaCoffee } from 'react-icons/fa';
 import { BiShuffle } from 'react-icons/bi';
 import { GrClose } from 'react-icons/gr';
 import { IconContext } from 'react-icons';
@@ -146,7 +146,7 @@ const Menu = ({ setCity }) => {
             <BiShuffle/> <b>- Changes SoundCloud Playlist</b>
           </ul>
           <ul>
-            <FaVolumeMute/> <b>- Mutes/Unmutes Video</b>
+            <FaVolumeUp/> <b>- Mutes/Unmutes Video</b>
           </ul>
           <ul>
             <FaYoutube/> <b>- Current Video YouTube Link</b>

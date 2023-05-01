@@ -292,7 +292,7 @@
 .rtRefLink:hover      ,   .vidLink:hover, 
 .muteButton:hover     ,   .muteIcon:hover,
 .shuffleButton:hover  ,   .shuffleIcon:hover,
-.menuButton:hover     ,    .closeMenuIcon:hover,
+.menuButton:hover     ,   .closeMenuIcon:hover,
 .volSlider:hover {
   filter: opacity(1) drop-shadow(2px 4px 6px black);
 }

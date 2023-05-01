@@ -1,13 +1,39 @@
 import '../styles/App.css';
-import React from "react";
+import React, { useState } from "react";
 import YouTube from 'react-youtube';
 import { FaVolumeUp, FaVolumeMute, FaYoutube } from "react-icons/fa";
 
 let init = true;
+let player;
+
+const MuteButton = () => {
+    const[isMute, setIsMute] = useState(false);
+    const toggleMute = () => {
+        if (player)
+        {
+            if(!isMute) {
+            setIsMute(true)
+            player.target.mute();
+            } else {
+                setIsMute(false);
+                player.target.unMute();
+            } 
+        }
+    }
+
+    return (
+        <button className={ "muteButton" } onClick={ toggleMute }>
+        {
+            isMute ?
+            <FaVolumeMute className={ "muteIcon" }/> :
+            <FaVolumeUp className={ "muteIcon" }/>
+        }
+        </button>
+    );
+};
 
 export const YouTubeEmbed = ({ videoList }) => {  
     let currVideo = videoList[Math.floor(Math.random() * videoList.length)];
-    let player;
   
     const onPlayerReady = (event) => {    
         event.target.getIframe().autoplay = "allow";
@@ -16,7 +42,6 @@ export const YouTubeEmbed = ({ videoList }) => {
         player = event;
         currVideo = player.target.getVideoUrl();
         init = false;
-        console.log(init);
     }
   
     const onEnd = (event) => {
@@ -47,30 +72,10 @@ export const YouTubeEmbed = ({ videoList }) => {
             mute: 0,
         }
     }
-    
-    let isMute = false;
-    const toggleMute = () => {
-        if (player)
-        {
-            if(!isMute) {
-            isMute = true;
-            player.target.mute();
-            } else {
-                isMute = false;
-                player.target.unMute();
-            } 
-        }
-    }
   
     return (
         <>
-        <button className={ "muteButton" } onClick={ toggleMute }>
-            {
-                isMute ?
-                <FaVolumeUp className={ "muteIcon" }/> :
-                <FaVolumeMute className={ "muteIcon" }/>
-            }
-        </button>
+        <MuteButton/>
         <div className={ "videoWrapper" }>
             <div className={ "videoResponsive" }>        
             <YouTube id="player"
