@@ -21,7 +21,7 @@ function App() {
   const hiroshimaVideos = ["NxXevpGGFBM","9UMn6CVizOw"];
   const kobeVideos      = ["mHXp_o0beOE"];
   const kyotoVideos     = ["Se15xH-IuMQ","rAeN7TdGq4o","yqf4pUWzP4Q","kd-OLM-6GRE","aaaxRIBPbXE"];
-  const naraVideos      = ["P8z1ABmXRy8"];
+  const naraVideos      = ["JO9RgHdg9S8"];
   const osakaVideos     = ["GJZLXiNOqqA","ThenfmXRbkQ","pu9BorxYjBQ","XHD2KtDXClc","ahZbCdrUVaQ"];
   const sapporoVideos   = ["aDCwZIUop6s","f6E1rTfwIWc","w46op-H-TsQ"];
   const sendaiVideos    = ["cHjKckxsOCs","Mo31lwe_gv4"];
