@@ -225,7 +225,7 @@
   transform: scale(1.25);
 }
 
-/* ----- Help Popup ----- */
+/*----- Help Popup -----*/
 
 .helpBox {
   z-index: 5;
@@ -378,62 +378,4 @@
 .creditsBox:hover     ,   .closeCreditsIcon:hover,
 .volSlider:hover      ,   .dontShowPopup:hover {
   filter: opacity(1) drop-shadow(2px 4px 6px black);
-}
-
-/* ----- Mobile Stylings ----- */
-
-@media screen and (min-width: 340px) {
-  .popupBox {
-    top: 10%;
-  }
-
-  .popupCredits {
-    z-index: 5;
-    bottom: 3%;
-    position: fixed;
-    background: none;
-  }
-
-  .boxMenu {
-    scale: 0.9;
-    z-index: 5;
-    position: fixed;
-    top: 60px;
-    right: -2.5%;
-    width: 200px;
-    margin: 0;
-    height: 100px;
-    min-height: 10vh;
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 10px;
-    padding: 20px;
-    border: 1px solid black;
-    font-family: Arial, monospace;
-    filter: drop-shadow(2px 4px 6px black);
-  }
-
-  .music {
-    scale: 0.8;
-    z-index: 5;
-    height: 125px;
-    width: 245px;
-    position: absolute;
-    top: -1%;
-    left: -6%;
-    border: none;
-    transition: all 0.2s;
-  }
-
-  .music iframe {
-    height: 125px;
-    width: 245px;
-    filter: opacity(0.1);
-    transition: all 0.2s;
-  }
-
-  .music iframe:hover {
-    height: 450px;
-    width: 450px;
-    filter: opacity(1) drop-shadow(2px 4px 6px black);
-  }
 }
