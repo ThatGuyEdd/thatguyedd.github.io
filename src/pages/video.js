@@ -1,6 +1,7 @@
 import '../styles/App.css';
 import React, { useState } from "react";
 import YouTube from 'react-youtube';
+
 import { FaVolumeUp, FaVolumeMute, FaYoutube } from "react-icons/fa";
 
 let init = true;
@@ -8,6 +9,7 @@ let player;
 
 const MuteButton = () => {
     const[isMute, setIsMute] = useState(false);
+
     const toggleMute = () => {
         if (player)
         {
@@ -55,6 +57,7 @@ export const YouTubeEmbed = ({ videoList }) => {
         playerVars: {
             autoplay: 1,
             controls: 0,
+            disablekb: 1,
             modestbranding: 1,
             rel: 0,
             loop: 1,
@@ -66,6 +69,7 @@ export const YouTubeEmbed = ({ videoList }) => {
         playerVars: {
             autoplay: 1,
             controls: 0,
+            disablekb: 1,
             modestbranding: 1,
             rel: 0,
             loop: 1,
@@ -76,22 +80,24 @@ export const YouTubeEmbed = ({ videoList }) => {
     return (
         <>
         <MuteButton/>
-        <div className={ "videoWrapper" }>
-            <div className={ "videoResponsive" }>        
-            <YouTube id="player"
-            videoId={ currVideo } 
-            opts={ init ? initOpts : opts } 
-            onReady={ onPlayerReady }
-            onEnd={ onEnd }
-            />
+        <div className={ "embedWrapper" }>
+            <div className={ "videoWrapper" }>
+                <div className={ "videoResponsive" }>        
+                <YouTube id="player"
+                videoId={ currVideo } 
+                opts={ init ? initOpts : opts } 
+                onReady={ onPlayerReady }
+                onEnd={ onEnd }
+                />
+                </div>
             </div>
         </div>
         <div>
             <a className={ "vidLink" } 
             href={ 'https://www.youtube.com/watch?v=' + currVideo }
             target="_blank" rel="noopener noreferrer">
-            <button className={"vidLinkButton"}>
-                <FaYoutube className={"vidLinkIcon"}/>
+            <button className={ "vidLinkButton" }>
+                <FaYoutube className={ "vidLinkIcon" }/>
             </button>
             </a>
         </div>

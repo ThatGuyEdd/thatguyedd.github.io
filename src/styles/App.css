@@ -1,4 +1,4 @@
-.wrapper{
+.siteWrapper{
   position: relative;
   width: 100%;
   height: 100%;
@@ -6,34 +6,75 @@
   background-color: grey;
 }
 
-/* ----- Menu ------ */
+.embedWrapper {
+  pointer-events: none;
+}
+
+.helpWrapper {
+  z-index: 5;
+  bottom: 0%;
+  right: 0%;
+  position: fixed;
+  background: none;
+}
+
+.menuWrapper {
+  z-index: 5;
+  position: fixed;
+  background: none;
+}
+
+.creditsWrapper {
+  z-index: 5;
+  bottom: 0%;
+  right: 0%;
+  position: fixed;
+  background: none;
+}
+
+/* #region <City Menu> */
 
 .menu {
   z-index: 5;
-  display: flex;
   position: relative;
+  margin-bottom: 15px;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 15px;
   -webkit-text-stroke: 0.25px lightgray;
 }
 
 .menuButton {
-  z-index: 5;
-  font-family: Arial, monospace;
+  z-index: 3;
+  position: absolute;
   top: 3px;
   right: 114px;
   height: 30px;
   width: 30px;
   display: flex;
   align-items: center;
-  background: none;
-  position: absolute;
   background: white;
   border-color: black;
   border-radius: 50%;
-  filter: opacity(0.3) drop-shadow(2px 4px 6px black);
+  font-family: Arial, monospace;
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
+
+.creditsButton {
+  z-index: 5;
+  position: absolute;
+  top: 80px;
+  right: -15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255,255,255,0.75);
+  border: 1.5px solid black;
+  border-radius: 10%;
+  color: black;
+  filter: opacity(0.3);
   transition: all 0.2s;
 }
 
@@ -47,13 +88,13 @@
   position: fixed;
   top: 63px;
   right: 0%;
-  width: 225px;
-  margin: 0;
   height: 125px;
   min-height: 10vh;
+  width: 225px;
+  margin: 0;
+  padding: 20px;
   background-color: rgba(255,255,255,0.5);
   border-radius: 10px;
-  padding: 20px;
   border: 1px solid black;
   font-family: Arial, monospace;
   filter: drop-shadow(2px 4px 6px black);
@@ -62,15 +103,15 @@
 .closeMenuIcon {
   z-index: 5;
   position: fixed;
-  right: calc(2%);
-  top: calc(4%);
-  background: #ededed;
+  top: 4%;
+  right: 2%;
   width: 25px;
   height: 25px;
-  border-radius: 50%;
   line-height: 20px;
   text-align: center;
+  background: #ededed;
   border: 1.5px solid black;
+  border-radius: 50%;
   font-size: 20px;
   filter: opacity(0.3);
   transition: all 0.2s;
@@ -80,25 +121,13 @@
   width: 65%;
 }
 
-.menuWrapper {
-  position: fixed;
-  color: black;
-  z-index: 5;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: top;
-  align-items: center;
-  font-family: Arial, monospace;
-  filter: text(2px 4px 6px black);
-}
+/* #endregion */
 
-/* ----- Video Player ----- */
+/* #region <Video Player> */
 
 .videoResponsive {
-  position: relative;
   z-index: 1;
+  position: relative;
   width: 300%;
   height: 100vh;
   left: -100%;
@@ -107,32 +136,34 @@
 }
 
 .videoResponsive iframe {
-  position: absolute;
   z-index: 1;
-  left: 0;
+  position: absolute;
   top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
 }
 
 .videoWrapper {
-  overflow: hidden;
+  z-index: 1;
+  position: relative;
   max-width: 100%;
+  overflow: hidden;
 }
 
 .muteButton {
-  z-index: 5;
+  z-index: 3;
+  position: fixed;
   top: 3px;
   right: 40px;
-  border-radius: 50%;
   height: 30px;
   width: 30px;
   display: flex;
   align-items: center;
   filter: opacity(0.3);
-  position: fixed;
   background: white;
   border-color: black;
+  border-radius: 50%;
   transition: all 0.2s;
 }
 
@@ -140,17 +171,15 @@
   transform: scale(1.3);
 }
 
-/* ----- Music Player ----- */
+/* #endregion */
+
+/* #region <Music Player> */
 
 .music {
-  z-index: 5;
-  height: 80px;
-  width: 250px;
+  z-index: 3;
   position: absolute;
   top: 4px;
   left: 3px;
-  border: none;
-  transition: all 0.2s;
 }
 
 .music iframe {
@@ -167,18 +196,18 @@
 }
 
 .shuffleButton {
-  z-index: 5;
+  z-index: 3;
+  position: fixed;
   top: 3px;
   right: 77px;
-  border-radius: 50%;
   height: 30px;
   width: 30px;
   display: flex;
   align-items: center;
-  filter: opacity(0.3);
-  position: fixed;
   background: white;
   border-color: black;
+  border-radius: 50%;
+  filter: opacity(0.3);
   transition: all 0.2s;
 }
 
@@ -187,7 +216,7 @@
 }
 
 .volSlider {
-  z-index: 5;
+  z-index: 3;
   top: 40px;
   right: 4px;
   height: 10px;
@@ -198,10 +227,12 @@
   transition: all 0.2s;
 }
 
-/* ----- Social Links ----- */
+/* #endregion */
+
+/* #region <Social Links> */
 
 .vidLink {
-  z-index: 5;
+  z-index: 3;
   position: absolute;
   top: 3px;
   right: 5px;
@@ -225,86 +256,114 @@
   transform: scale(1.25);
 }
 
-/* ----- Help Popup ----- */
+/* #endregion */
 
-.helpBox {
-  z-index: 5;
+/* #region <Help Popup> */
+
+.helpButton {
+  z-index: 3;
+  position: absolute;
   top: 3px;
   right: 151px;
   height: 30px;
   width: 30px;
-  content: '?';
-  border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
   background: white;
   border-radius: black;
-  position: absolute;
-  filter: opacity(0.3) drop-shadow(2px 4px 6px black);
+  border-radius: 50%;
+  filter: opacity(0.3);
   transition: all 0.2s;
 }
 
-.popupBox {
-  z-index: 5;
-  position: fixed;
-  background: none;
-}
-
-.box {
+.boxHelp {
   z-index: 5;
   position: relative;
-  margin: 0;
   height: fit-content;
   width: 50vw;
-  max-width: 600px;
   min-width: 350px;
-  background: rgb(211, 211, 211, 0.75);
-  border-radius: 10px;
+  max-width: 600px;
   padding: 20px;
-  border: 1px solid black;
-  font-family: Arial, monospace;
   padding-bottom: 50px;
+  margin: 0;
+  background: rgb(211, 211, 211, 0.75);
+  border: 1px solid black;
+  border-radius: 10px;
+  font-family: Arial, monospace;
   filter: drop-shadow(2px 4px 6px black);
 }
 
-.closeIcon {
+.closeHelpIcon {
   z-index: 5;
   position: fixed;
-  right: calc(1%);
-  top: calc(1%);
-  background: #ededed;
+  right: 1%;
+  top: 1%;
   width: 25px;
   height: 25px;
-  border-radius: 50%;
   line-height: 20px;
-  text-align: center;
-  border: 1.5px solid black;
   font-size: 20px;
+  text-align: center;
+  background: #ededed;
+  border: 1.5px solid black;
+  border-radius: 50%;
   filter: opacity(0.3);
   transition: all 0.2s;
 }
 
 .helpBoxTitle {
-  margin-top :0;
+  margin-top: 0;
 }
 
 .dontShowPopup {
   z-index: 5;
-  bottom: 5%;
+  position: absolute;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border: 1.5px solid black;
+  justify-content: center;
+  margin-top: 5px;
   border-radius: 10%;
   background: rgb(255,255,255,0.75);
-  position: absolute;
+  border: 1.5px solid black;
   color: black;
   filter: opacity(0.3);
   transition: all 0.2s;
 }
 
-/*----- Credits -----*/
+/* #endregion */
+
+/* #region <Credits> */
+
+.boxCredits {
+  z-index: 5;
+  position: relative;
+  height: fit-content;
+  width: 50vw;
+  max-width: 500px;
+  min-width: 350px;
+  padding: 20px;
+  background: rgb(211, 211, 211, 0.75);
+  border: 1px solid black;
+  border-radius: 10px;
+  font-family: Arial, monospace;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.closeCreditsIcon {
+  z-index: 5;
+  position: fixed;
+  right: 1%;
+  top: 2%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 20px;
+  background: #ededed;
+  border: 1.5px solid black;
+  border-radius: 50%;
+  font-size: 20px;
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
 
 .credits {
   z-index: 5;
@@ -313,118 +372,66 @@
   font-family: Arial, monospace;
 }
 
-.creditsBox {
-  z-index: 5;
-  top: 80px;
-  right: -15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1.5px solid black;
-  border-radius: 10%;
-  background: rgb(255,255,255,0.75);
-  position: absolute;
-  color: black;
-  filter: opacity(0.3);
-  transition: all 0.2s;
-}
+/* #endregion */
 
-.popupCredits {
-  z-index: 5;
-  position: fixed;
-  background: none;
-}
+/* #region <Hover Stylings> */
 
-.boxCredits {
-  z-index: 5;
-  position: relative;
-  margin: 0;
-  height: fit-content;
-  width: 50vw;
-  max-width: 500px;
-  min-width: 350px;
-  background: rgb(211, 211, 211, 0.75);
-  border-radius: 10px;
-  padding: 20px;
-  border: 1px solid black;
-  font-family: Arial, monospace;
-  filter: drop-shadow(2px 4px 6px black);
-}
-
-.closeCreditsIcon {
-  z-index: 5;
-  position: fixed;
-  right: calc(1%);
-  top: calc(2%);
-  background: #ededed;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  line-height: 20px;
-  text-align: center;
-  border: 1.5px solid black;
-  font-size: 20px;
-  filter: opacity(0.3);
-  transition: all 0.2s;
-}
-
-/* ----- General Hover Stylings ----- */
-
-.closeIcon:hover      ,   .helpBox:hover,
-.rtRefLink:hover      ,   .vidLink:hover, 
-.muteButton:hover     ,   .muteIcon:hover,
-.shuffleButton:hover  ,   .shuffleIcon:hover,
+.helpButton:hover     ,   .closeHelpIcon:hover  ,
 .menuButton:hover     ,   .closeMenuIcon:hover,
-.creditsBox:hover     ,   .closeCreditsIcon:hover,
-.volSlider:hover      ,   .dontShowPopup:hover {
+.creditsButton:hover  ,   .closeCreditsIcon:hover,
+.muteButton:hover     ,   
+.shuffleButton:hover  ,
+.vidLink:hover        , 
+.volSlider:hover      ,   
+.dontShowPopup:hover {
   filter: opacity(1) drop-shadow(2px 4px 6px black);
 }
 
-/* ----- Mobile Stylings ----- */
+/* #endregion */
 
-@media screen and ((max-width: 1224px) and (
+/* #region <Mobile Stylings> */
+
+@media screen and ((max-width: 1224px) and (orientation: portrait) and (
   (-webkit-device-pixel-ratio: 2) or 
   (-webkit-device-pixel-ratio: 3) or
   (-webkit-device-pixel-ratio: 4))) {
-  .popupBox {
-    top: 10%;
+  .helpWrapper {
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    height: fit-content;
   }
 
-  .popupCredits {
-    z-index: 5;
-    bottom: 3%;
+  .creditsWrapper {
     position: fixed;
-    background: none;
+    bottom: 0%;
+    left: 0%;
   }
 
   .boxMenu {
-    scale: 0.9;
     z-index: 5;
     position: fixed;
     top: 60px;
     right: -1%;
-    width: 200px;
-    margin: 0;
     height: 100px;
+    width: 200px;
     min-height: 10vh;
+    margin: 0;
+    padding: 20px;
     background-color: rgba(255,255,255,0.5);
     border-radius: 10px;
-    padding: 20px;
     border: 1px solid black;
     font-family: Arial, monospace;
+    scale: 0.9;
     filter: drop-shadow(2px 4px 6px black);
   }
 
   .music {
-    scale: 0.8;
-    z-index: 5;
+    z-index: 3;
+    position: absolute;
     top: -1%;
     left: -2%;
-    height: 125px;
-    width: 200px;
-    position: absolute;
-    border: none;
-    transition: all 0.2s;
+    scale: 0.8;
   }
 
   .music iframe {
@@ -445,9 +452,19 @@
   (-webkit-device-pixel-ratio: 2) or 
   (-webkit-device-pixel-ratio: 3) or
   (-webkit-device-pixel-ratio: 4))) {
-  .popupBox {
-    top: 10%;
+  .helpWrapper {
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
     overflow: auto;
-    height: 300px;
+  }
+
+  .creditsWrapper {
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
   }
 }
+
+/* #endregion */
