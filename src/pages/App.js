@@ -11,7 +11,6 @@ import { BiShuffle } from 'react-icons/bi';
 import { GrClose } from 'react-icons/gr';
 import { IconContext } from 'react-icons';
 
-
 function App() {
   const [city, setCity] = useState("Loading");
   const cityVideos = new Map();
@@ -49,9 +48,9 @@ function App() {
       <div className={ "siteWrapper" }>       
         <Menu setCity={ setCity } cityName={ city }/>
         <BGM/>
-      <div>
-        <YouTubeEmbed videoList={ cityVideos.get(`${city}`)??[] }/>
-      </div>
+        <div>
+          <YouTubeEmbed videoList={ cityVideos.get(`${city}`)??[] }/>
+        </div>
       </div>
     </>
   );
@@ -62,10 +61,10 @@ const PopupHelp = props => {
     <div className={ "helpWrapper" }>
       <div className={ "boxHelp" }>
         <span className={ "closeHelpIcon" } onClick={ props.handleClose }>
-        <IconContext.Provider
+          <IconContext.Provider
             value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
             <GrClose/>
-        </IconContext.Provider>
+          </IconContext.Provider>
         </span>
         { props.content }
       </div>
@@ -78,10 +77,10 @@ const PopupMenu = props => {
     <div className={ "menuWrapper" }>
       <div className={ "boxMenu" }>
         <span className={ "closeMenuIcon" } onClick={ props.handleClose }>
-        <IconContext.Provider
+          <IconContext.Provider
             value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
             <GrClose/>
-        </IconContext.Provider>
+          </IconContext.Provider>
         </span>
         { props.content }
       </div>
@@ -95,10 +94,10 @@ const PopupCredits = props => {
     <div className={ "creditsWrapper" }>
       <div className={ "boxCredits" }>
         <span className={ "closeCreditsIcon" } onClick={ props.handleClose }>
-        <IconContext.Provider
+          <IconContext.Provider
             value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
             <GrClose/>
-        </IconContext.Provider>
+          </IconContext.Provider>
         </span>
         { props.content }
       </div>
@@ -134,7 +133,7 @@ const Menu = ({ setCity }) => {
     <div>
       <button className={ "helpButton" }
         type="button"
-        onClick={toggleHelpPopup}
+        onClick={ toggleHelpPopup }
       ><FaQuestion/></button>
       <button className={ "menuButton" }
         type="button"

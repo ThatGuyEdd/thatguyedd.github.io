@@ -13,9 +13,9 @@ const MuteButton = () => {
     const toggleMute = () => {
         if (player)
         {
-            if(!isMute) {
-            setIsMute(true)
-            player.target.mute();
+            if (!isMute) {
+                setIsMute(true)
+                player.target.mute();
             } else {
                 setIsMute(false);
                 player.target.unMute();

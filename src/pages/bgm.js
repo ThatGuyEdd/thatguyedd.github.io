@@ -32,7 +32,7 @@ export const BGM = React.memo(() => {
                 soundcloud().setVolume(volume);
             }
             vol.addEventListener('input', update);
-            if(vol) {
+            if (vol) {
                 update();
             }
         }
@@ -50,8 +50,9 @@ export const BGM = React.memo(() => {
                 src={
                     `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/${randPlaylist}${trackParams}`
                 }
-                />
+            />
         </div>
         </>
     );
   });
+  
