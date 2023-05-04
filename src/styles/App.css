@@ -391,7 +391,7 @@
 
 /* #region <Mobile Stylings> */
 
-@media only screen and (max-width: 1224px) and (orientation: portrait) and (
+/* @media only screen and (max-width: 1224px) and (orientation: portrait) and (
 (-webkit-device-pixel-ratio: 2) or 
 (-webkit-device-pixel-ratio: 3) or
 (-webkit-device-pixel-ratio: 4)) {
@@ -465,16 +465,16 @@
     bottom: 0%;
     left: 0%;
   }
-}
+} */
 
 /* #endregion */
 
 /* #region <iOS Stylings TEST> */
 
 @media only screen 
-and (((device-width: 390px) 
+and (device-width: 390px) 
 and (device-height: 844px) 
-and (-webkit-device-pixel-ratio: 3))) {
+and (-webkit-device-pixel-ratio: 3) {
   .helpWrapper {
     position: fixed;
     bottom: 0%;
@@ -528,12 +528,11 @@ and (-webkit-device-pixel-ratio: 3))) {
   }
 }
 
-@media only screen and
-(orientation: landscape)
-and 
-((device-width: 390px) and 
-(device-height: 844px) and 
-(-webkit-device-pixel-ratio: 3)) {
+@media only screen 
+and (device-width: 390px) 
+and (device-height: 844px) 
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: landscape) {
   .helpWrapper {
     position: fixed;
     bottom: 0%;
