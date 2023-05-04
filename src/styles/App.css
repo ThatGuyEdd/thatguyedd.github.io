@@ -391,7 +391,66 @@
 
 /* #region <Mobile Stylings> */
 
-@media screen and ((max-width: 1224px) and (orientation: portrait) and (
+/* Testing iPhone CSS Media Query */
+
+@media only screen 
+and (device-width: 375px) 
+and (device-height: 812px) 
+and (-webkit-device-pixel-ratio: 3) {
+  .helpWrapper {
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    height: fit-content;
+  }
+
+  .creditsWrapper {
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+  }
+
+  .boxMenu {
+    z-index: 5;
+    position: fixed;
+    top: 60px;
+    right: -1%;
+    height: 100px;
+    width: 200px;
+    min-height: 10vh;
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 10px;
+    border: 1px solid black;
+    font-family: Arial, monospace;
+    scale: 0.9;
+    filter: drop-shadow(2px 4px 6px black);
+  }
+
+  .music {
+    z-index: 3;
+    position: absolute;
+    top: -1%;
+    left: -2%;
+    scale: 0.8;
+  }
+
+  .music iframe {
+    height: 125px;
+    width: 200px;
+    filter: opacity(0.1);
+    transition: all 0.2s;
+  }
+
+  .music iframe:hover {
+    height: 350px;
+    width: 200px;
+    filter: opacity(1) drop-shadow(2px 4px 6px black);
+  }
+}
+
+@media only screen and ((max-width: 1224px) and (orientation: portrait) and (
   (-webkit-device-pixel-ratio: 2) or 
   (-webkit-device-pixel-ratio: 3) or
   (-webkit-device-pixel-ratio: 4))) {
@@ -448,7 +507,7 @@
   }
 }
 
-@media screen and ((max-width: 1224px) and (orientation: landscape) and (
+@media only screen and ((max-width: 1224px) and (orientation: landscape) and (
   (-webkit-device-pixel-ratio: 2) or 
   (-webkit-device-pixel-ratio: 3) or
   (-webkit-device-pixel-ratio: 4))) {
