@@ -47,7 +47,7 @@ export const YouTubeEmbed = ({ videoList }) => {
     }
 
     const onStateChange = (event) => {
-        if (event.data === -1) {
+        if ((event.data !== 0) || (event.data !== 1) ||  (event.data !== 5)) {
             void event.target.setVolume(10);
             void event.target.playVideo();
             player = event;
