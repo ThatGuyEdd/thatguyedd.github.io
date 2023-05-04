@@ -145,7 +145,6 @@ const Menu = ({ setCity }) => {
             <div className={ "menu" }>
               <label><b>Choose City</b></label>
               <Select
-                className={ "citySelector" }
                 placeholder="Select City"
                 selectedOption={ localCity }
                 onChange={(e) => {

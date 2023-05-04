@@ -11,11 +11,13 @@
 }
 
 .helpWrapper {
-  z-index: 5;
-  bottom: 0%;
-  right: 0%;
+  z-index: 10;
   position: fixed;
-  background: none;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  place-content: center; 
+  background: rgb(0,0,0,0.75);
 }
 
 .menuWrapper {
@@ -26,9 +28,9 @@
 
 .creditsWrapper {
   z-index: 5;
+  position: fixed;
   bottom: 0%;
   right: 0%;
-  position: fixed;
   background: none;
 }
 
@@ -37,7 +39,6 @@
 .menu {
   z-index: 5;
   position: relative;
-  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,11 +79,6 @@
   transition: all 0.2s;
 }
 
-.popupMenu {
-  z-index: 5;
-  position: fixed;
-}
-
 .boxMenu {
   z-index: 5;
   position: fixed;
@@ -90,7 +86,7 @@
   right: 0%;
   height: 125px;
   min-height: 10vh;
-  width: 225px;
+  width: 180px;
   margin: 0;
   padding: 20px;
   background-color: rgba(255,255,255,0.5);
@@ -391,30 +387,18 @@
 
 /* #region <Mobile Stylings> */
 
-@media only screen and (max-width: 1224px) and (orientation: portrait) and (
-(-webkit-device-pixel-ratio: 2) or 
-(-webkit-device-pixel-ratio: 3) or
-(-webkit-device-pixel-ratio: 4)) {
+@media only screen and (max-width: 1224px) {
   .helpWrapper {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
-    height: fit-content;
-  }
-
-  .creditsWrapper {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
+    overflow: auto;
   }
 
   .boxMenu {
     z-index: 5;
     position: fixed;
     top: 60px;
-    right: -10px;
+    right: 0px;
     height: 100px;
-    width: 200px;
+    width: 180px;
     min-height: 10vh;
     margin: 0;
     padding: 20px;
@@ -422,7 +406,6 @@
     border-radius: 10px;
     border: 1px solid black;
     font-family: Arial, monospace;
-    scale: 0.9;
     filter: drop-shadow(2px 4px 6px black);
   }
 
@@ -430,7 +413,7 @@
     z-index: 3;
     position: absolute;
     top: -2%;
-    left: -5%;
+    left: -2.5%;
     scale: 0.8;
   }
 
@@ -443,27 +426,8 @@
 
   .music iframe:hover {
     height: 350px;
-    width: 200px;
+    width: 220px;
     filter: opacity(1) drop-shadow(2px 4px 6px black);
-  }
-}
-
-@media only screen and (max-width: 1224px) and (orientation: landscape) and (
-(-webkit-device-pixel-ratio: 2) or 
-(-webkit-device-pixel-ratio: 3) or
-(-webkit-device-pixel-ratio: 4)) {
-  .helpWrapper {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
-    overflow: auto;
-  }
-
-  .creditsWrapper {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
   }
 }
 
@@ -472,28 +436,17 @@
 /* #region <iOS Stylings TEST> */
 
 @media only screen 
-and (device-width: 390px) 
+and 
+((device-width: 390px) 
 and (device-height: 844px) 
-and (-webkit-device-pixel-ratio: 3) {
-  .helpWrapper {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
-  }
-
-  .creditsWrapper {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
-  }
-
+and (-webkit-device-pixel-ratio: 3)) {
   .boxMenu {
     z-index: 5;
     position: fixed;
     top: 60px;
-    right: -10px;
+    right: 0px;
     height: 100px;
-    width: 200px;
+    width: 180px;
     min-height: 10vh;
     margin: 0;
     padding: 20px;
@@ -501,7 +454,6 @@ and (-webkit-device-pixel-ratio: 3) {
     border-radius: 10px;
     border: 1px solid black;
     font-family: Arial, monospace;
-    scale: 0.9;
     filter: drop-shadow(2px 4px 6px black);
   }
 
@@ -524,26 +476,6 @@ and (-webkit-device-pixel-ratio: 3) {
     height: 350px;
     width: 220px;
     filter: opacity(1) drop-shadow(2px 4px 6px black);
-  }
-}
-
-@media only screen 
-and (device-width: 390px) 
-and (device-height: 844px) 
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: landscape) {
-  .helpWrapper {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
-    overflow: auto;
-  }
-
-  .creditsWrapper {
-    position: fixed;
-    bottom: 0%;
-    left: 0%;
   }
 }
 
