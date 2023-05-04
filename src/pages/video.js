@@ -1,8 +1,8 @@
 import '../styles/App.css';
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import YouTube from 'react-youtube';
 
-import { FaVolumeUp, FaVolumeMute, FaYoutube } from "react-icons/fa";
+import { FaVolumeUp, FaVolumeMute, FaYoutube } from 'react-icons/fa';
 
 let init = true;
 let player;

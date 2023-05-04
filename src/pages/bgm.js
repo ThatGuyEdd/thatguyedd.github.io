@@ -1,8 +1,8 @@
 import '../styles/App.css';
-import React, { useState } from "react";
-import soundcloud from "../api/soundcloud";
+import React, { useState } from 'react';
+import soundcloud from '../api/soundcloud';
 
-import { BiShuffle } from "react-icons/bi";
+import { BiShuffle } from 'react-icons/bi';
 
 export const BGM = React.memo(() => {    
     let vol;

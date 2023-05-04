@@ -4,7 +4,8 @@ import soundcloud from '../api/soundcloud';
 import { YouTubeEmbed } from './video';
 import { BGM } from './bgm';
 
-import Select from "@cloudscape-design/components/select";
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import { FaAlignJustify, FaQuestion, FaVolumeUp, 
          FaYoutube, FaCoffee} from 'react-icons/fa';
 import { BiShuffle } from 'react-icons/bi';
@@ -106,7 +107,7 @@ const PopupCredits = props => {
 };
 
 const Menu = ({ setCity }) => {
-  const [localCity, setLocalCity] = useState({ label: "Select City", value: "Loading" });  
+  const [localCity, setLocalCity] = useState("Select City");  
   const [helpOpen, setHelpOpen] = useState(localStorage.getItem("showHelp") === "true");
   const [menuOpen, setMenuOpen] = useState(true);
   const [creditsOpen, setCreditsOpen] = useState(false);
@@ -143,29 +144,35 @@ const Menu = ({ setCity }) => {
         content={
           <>
             <div className={ "menu" }>
-              <label><b>Choose City</b></label>
-              <Select
-                placeholder="Select City"
-                selectedOption={ localCity }
+              <Select sx={{ 
+                height: 35, 
+                marginTop: '20px', 
+                color: 'black', 
+                fontWeight: 'bold',
+                backgroundColor: 'rgb(255,255,255,0.5)',
+                outline: '1px solid black'}}
+                MenuProps={{ PaperProps: { sx: { maxHeight: 300 }}
+                }}
+                value={ localCity }
                 onChange={(e) => {
                   soundcloud().play();
-                  setLocalCity(e.detail.selectedOption);
-                  setCity(e.detail.selectedOption.value);
+                  setLocalCity(e.target.value);
+                  setCity(e.target.value);
                 }}
-                options={[
-                  { label: "Aomori", value: "Aomori"},
-                  { label: "Fukuoka", value: "Fukuoka"},
-                  { label: "Fukushima", value: "Fukushima" },
-                  { label: "Hiroshima", value: "Hiroshima" },
-                  { label: "Kobe", value: "Kobe"},
-                  { label: "Kyoto", value: "Kyoto" },
-                  { label: "Nara", value: "Nara"},
-                  { label: "Osaka", value: "Osaka" },
-                  { label: "Sapporo", value: "Sapporo" },
-                  { label: "Sendai", value: "Sendai" },
-                  { label: "Tokyo", value: "Tokyo" },
-                ]}
-              />
+              >
+                <MenuItem style={{ display: "none" }} value={ "Select City" } disabled>Select City</MenuItem>
+                <MenuItem value={ "Aomori" }>Aomori</MenuItem>
+                <MenuItem value={ "Fukuoka" }>Fukuoka</MenuItem>
+                <MenuItem value={ "Fukushima" }>Fukushima</MenuItem>
+                <MenuItem value={ "Hiroshima" }>Hiroshima</MenuItem>
+                <MenuItem value={ "Kobe" }>Kobe</MenuItem>
+                <MenuItem value={ "Kyoto" }>Kyoto</MenuItem>
+                <MenuItem value={ "Nara" }>Nara</MenuItem>
+                <MenuItem value={ "Osaka" }>Osaka</MenuItem>
+                <MenuItem value={ "Sapporo" }>Sapporo</MenuItem>
+                <MenuItem value={ "Sendai" }>Sendai</MenuItem>
+                <MenuItem value={ "Tokyo" }>Tokyo</MenuItem>
+              </Select>
               <button className={ "creditsButton" }
                 type="button"
                 onClick={ toggleCredits }>
@@ -189,23 +196,23 @@ const Menu = ({ setCity }) => {
             value={{style: { verticalAlign: 'middle'}}}>
             <ul><b>Controls</b> are on the upper right of the screen.</ul>
             <ul>
-                Mouseover the <b>music player</b> on the upper left to play/pause and view the current playlist.
-                Use the <b>slider</b> below the control buttons to change the music volume.
+                Hover over the <b>music player</b> on the upper left to play/pause and view the current playlist.
+                Use the <b>slider</b> below the controls to change the music volume.
             </ul>
             <ul>
-              <FaQuestion/> <b>- Opens Help Menu</b>
+              <FaQuestion/> <b>- Opens How to Use Menu</b>
             </ul>
             <ul>
-              <FaAlignJustify/> <b>- Opens City Menu</b>
+              <FaAlignJustify/> <b>- Opens Select City Menu</b>
             </ul>
             <ul>
-              <BiShuffle/> <b>- Changes SoundCloud Playlist</b>
+              <BiShuffle/> <b>- Changes Music Playlist</b>
             </ul>
             <ul>
               <FaVolumeUp/> <b>- Mutes/Unmutes Video</b>
             </ul>
             <ul>
-              <FaYoutube/> <b>- Current Video YouTube Link</b>
+              <FaYoutube/> <b>- Current Video Source</b>
             </ul>
             <sub>
               <FaCoffee/> Want to buy me a <a href="https://ko-fi.com/thatguyedd" 

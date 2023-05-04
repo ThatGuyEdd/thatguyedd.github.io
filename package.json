@@ -6,6 +6,9 @@
   "dependencies": {
     "@cloudscape-design/components": "^3.0.263",
     "@cloudscape-design/global-styles": "^1.0.9",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@mui/material": "^5.12.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
