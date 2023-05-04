@@ -63,6 +63,12 @@ const PopupHelp = props => {
   return (
     <div className={ "helpWrapper" }>
       <div className={ "boxHelp" }>
+        <span className={ "closeHelpIcon" } onClick={ props.handleClose }>
+          <IconContext.Provider
+            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+            <GrClose/>
+          </IconContext.Provider>
+        </span>
         { props.content }
       </div>
     </div>
@@ -73,6 +79,12 @@ const PopupMenu = props => {
   return (
     <div className={ "menuWrapper" }>
       <div className={ "boxMenu" }>
+        <span className={ "closeMenuIcon" } onClick={ props.handleClose }>
+          <IconContext.Provider
+            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+            <GrClose/>
+          </IconContext.Provider>
+        </span>
         { props.content }
       </div>
     </div>
@@ -84,6 +96,12 @@ const PopupCredits = props => {
   return (
     <div className={ "creditsWrapper" }>
       <div className={ "boxCredits" }>
+          <span className={ "closeCreditsIcon" } onClick={ props.handleClose }>
+            <IconContext.Provider
+              value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+              <GrClose/>
+            </IconContext.Provider>
+          </span>
         { props.content }
       </div>
     </div>
@@ -165,15 +183,10 @@ const Menu = ({ setCity }) => {
                 onClick={ toggleCredits }>
                 <b>Credits</b>
               </button>
-              <span className={ "closeMenuIcon" } onClick={ toggleMenu }>
-                <IconContext.Provider
-                  value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
-                  <GrClose/>
-                </IconContext.Provider>
-              </span>
             </div>       
           </>
         }
+        handleClose={ toggleMenu }
       />}
       {helpOpen && localStorage.getItem("showHelp") && <PopupHelp
         content={
@@ -220,14 +233,9 @@ const Menu = ({ setCity }) => {
                 </button>
               </sub>
             </IconContext.Provider>
-            <span className={ "closeHelpIcon" } onClick={ toggleHelpPopup }>
-              <IconContext.Provider
-                value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
-                <GrClose/>
-              </IconContext.Provider>
-            </span>
           </>
         }
+        handleClose={ toggleHelpPopup }
       />}
       {creditsOpen && <PopupCredits
         content={
@@ -253,14 +261,9 @@ const Menu = ({ setCity }) => {
                 All music are properties of their respective artists.
               </p>
             </ul>
-            <span className={ "closeCreditsIcon" } onClick={ toggleCredits }>
-              <IconContext.Provider
-                value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
-                <GrClose/>
-              </IconContext.Provider>
-            </span>
           </div>
         }
+        handleClose={ toggleCredits }
       />}
     </div>
   );

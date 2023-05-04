@@ -98,7 +98,7 @@
 
 .closeMenuIcon {
   z-index: 5;
-  position: fixed;
+  position: absolute;
   top: 4%;
   right: 2%;
   width: 25px;
@@ -286,7 +286,7 @@
 
 .closeHelpIcon {
   z-index: 5;
-  position: fixed;
+  position: absolute;
   right: 5px;
   top: 5px;
   width: 25px;
@@ -341,7 +341,7 @@
 
 .closeCreditsIcon {
   z-index: 5;
-  position: fixed;
+  position: absolute;
   right: 5px;
   top: 5px;
   width: 25px;
