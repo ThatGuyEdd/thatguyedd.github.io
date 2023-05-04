@@ -479,7 +479,6 @@ and (-webkit-device-pixel-ratio: 3) {
     position: fixed;
     bottom: 0%;
     left: 0%;
-    height: fit-content;
   }
 
   .creditsWrapper {
@@ -523,7 +522,7 @@ and (-webkit-device-pixel-ratio: 3) {
 
   .music iframe:hover {
     height: 350px;
-    width: 200px;
+    width: 220px;
     filter: opacity(1) drop-shadow(2px 4px 6px black);
   }
 }
