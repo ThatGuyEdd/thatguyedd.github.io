@@ -394,9 +394,9 @@
 /* Testing iPhone CSS Media Query */
 
 @media only screen 
-and (device-width: 375px) 
-and (device-height: 812px) 
-and (-webkit-device-pixel-ratio: 3) {
+and (device-width: 390px) 
+and (device-height: 844px) 
+and (-webkit-device-pixel-ratio: 3)  {
   .helpWrapper {
     position: fixed;
     bottom: 0%;
