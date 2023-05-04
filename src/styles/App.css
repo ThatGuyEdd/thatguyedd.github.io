@@ -382,7 +382,7 @@
 
 /* #region <Mobile Stylings> */
 
-@media only screen and (max-width: 1224px) {
+@media screen and (max-width: 1224px) {
   .helpWrapper {
     overflow: auto;
   }
@@ -428,10 +428,10 @@
 
 /* #region <iOS Stylings TEST> */
 
-@media only screen 
-and 
-((device-width: 390px) 
-and (device-height: 844px) 
+@media screen 
+and
+((max-width: 390px) 
+and (max-height: 844px) 
 and (-webkit-device-pixel-ratio: 3)) {
   .boxMenu {
     z-index: 5;
