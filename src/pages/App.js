@@ -6,11 +6,13 @@ import { BGM } from './bgm';
 
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { FaAlignJustify, FaQuestion, FaVolumeUp, 
+import { FaAlignJustify, FaQuestion, FaVolumeMute, 
          FaYoutube, FaCoffee} from 'react-icons/fa';
 import { BiShuffle } from 'react-icons/bi';
 import { GrClose } from 'react-icons/gr';
 import { IconContext } from 'react-icons';
+
+let init = true;
 
 function App() {
   const [city, setCity] = useState("Loading");
@@ -61,12 +63,6 @@ const PopupHelp = props => {
   return (
     <div className={ "helpWrapper" }>
       <div className={ "boxHelp" }>
-        <span className={ "closeHelpIcon" } onClick={ props.handleClose }>
-          <IconContext.Provider
-            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
-            <GrClose/>
-          </IconContext.Provider>
-        </span>
         { props.content }
       </div>
     </div>
@@ -77,12 +73,6 @@ const PopupMenu = props => {
   return (
     <div className={ "menuWrapper" }>
       <div className={ "boxMenu" }>
-        <span className={ "closeMenuIcon" } onClick={ props.handleClose }>
-          <IconContext.Provider
-            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
-            <GrClose/>
-          </IconContext.Provider>
-        </span>
         { props.content }
       </div>
     </div>
@@ -94,12 +84,6 @@ const PopupCredits = props => {
   return (
     <div className={ "creditsWrapper" }>
       <div className={ "boxCredits" }>
-        <span className={ "closeCreditsIcon" } onClick={ props.handleClose }>
-          <IconContext.Provider
-            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
-            <GrClose/>
-          </IconContext.Provider>
-        </span>
         { props.content }
       </div>
     </div>
@@ -155,7 +139,10 @@ const Menu = ({ setCity }) => {
                 }}
                 value={ localCity }
                 onChange={(e) => {
-                  soundcloud().play();
+                  if (init) {
+                    soundcloud().play();
+                    init = false;
+                  }
                   setLocalCity(e.target.value);
                   setCity(e.target.value);
                 }}
@@ -176,59 +163,71 @@ const Menu = ({ setCity }) => {
               <button className={ "creditsButton" }
                 type="button"
                 onClick={ toggleCredits }>
-                <b><u>Credits</u></b>
+                <b>Credits</b>
               </button>
+              <span className={ "closeMenuIcon" } onClick={ toggleMenu }>
+                <IconContext.Provider
+                  value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+                  <GrClose/>
+                </IconContext.Provider>
+              </span>
             </div>       
           </>
         }
-        handleClose={ toggleMenu }  
       />}
       {helpOpen && localStorage.getItem("showHelp") && <PopupHelp
-        content={<>
-          <h3 className={ "helpBoxTitle" }>Japan Walkaround 🗾 日本に歩き回る</h3>
-          <ul>
-            <i>Lofi music with videos of Japan.</i>
-            <br></br>
-            <sub>This site was designed for desktop. Mobile compatability may vary.</sub>
-          </ul>
-          <b>How to Use</b>
-          <IconContext.Provider
-            value={{style: { verticalAlign: 'middle'}}}>
-            <ul><b>Controls</b> are on the upper right of the screen.</ul>
+        content={
+          <>
+            <h3 className={ "helpBoxTitle" }>Japan Walkaround 🗾 日本に歩き回る</h3>
             <ul>
-                Hover over the <b>music player</b> on the upper left to play/pause and view the current playlist.
-                Use the <b>slider</b> below the controls to change the music volume.
+              <i>Lofi music with videos of Japan.</i>
+              <br></br>
+              <sub>This site was designed for desktop. Mobile compatability may vary.</sub>
             </ul>
-            <ul>
-              <FaQuestion/> <b>- Opens How to Use Menu</b>
-            </ul>
-            <ul>
-              <FaAlignJustify/> <b>- Opens Select City Menu</b>
-            </ul>
-            <ul>
-              <BiShuffle/> <b>- Changes Music Playlist</b>
-            </ul>
-            <ul>
-              <FaVolumeUp/> <b>- Mutes/Unmutes Video</b>
-            </ul>
-            <ul>
-              <FaYoutube/> <b>- Current Video Source</b>
-            </ul>
-            <sub>
-              <FaCoffee/> Want to buy me a <a href="https://ko-fi.com/thatguyedd" 
-                                            target="_blank" rel="noopener noreferrer">
-              <b><u>coffee</u></b>
-              </a>?
-            </sub>
-            <sub>
-              <button className={ "dontShowPopup" }
-              onClick={ toggleShowHelp }>
-                <b>Close & Don't Show Again</b>
-              </button>
-            </sub>
-          </IconContext.Provider>
-        </>}
-        handleClose={ toggleHelpPopup }
+            <b>How to Use</b>
+            <IconContext.Provider
+              value={{style: { verticalAlign: 'middle'}}}>
+              <ul><b>Controls</b> are on the upper right of the screen.</ul>
+              <ul>
+                  Hover over the <b>music player</b> on the upper left to play/pause and view the current playlist.
+                  Use the <b>slider</b> below the controls to change the music volume.
+              </ul>
+              <ul>
+                <FaQuestion/> <b>- Opens How to Use Menu</b>
+              </ul>
+              <ul>
+                <FaAlignJustify/> <b>- Opens Select City Menu</b>
+              </ul>
+              <ul>
+                <BiShuffle/> <b>- Changes Music Playlist</b>
+              </ul>
+              <ul>
+                <FaVolumeMute/> <b>- Unmutes/Mutes Video</b>
+              </ul>
+              <ul>
+                <FaYoutube/> <b>- Current Video Source</b>
+              </ul>
+              <sub>
+                <FaCoffee/> Want to buy me a <a href="https://ko-fi.com/thatguyedd" 
+                                              target="_blank" rel="noopener noreferrer">
+                <b><u>coffee</u></b>
+                </a>?
+              </sub>
+              <sub>
+                <button className={ "dontShowPopup" }
+                onClick={ toggleShowHelp }>
+                  <b>Close & Don't Show Again</b>
+                </button>
+              </sub>
+            </IconContext.Provider>
+            <span className={ "closeHelpIcon" } onClick={ toggleHelpPopup }>
+              <IconContext.Provider
+                value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+                <GrClose/>
+              </IconContext.Provider>
+            </span>
+          </>
+        }
       />}
       {creditsOpen && <PopupCredits
         content={
@@ -254,9 +253,14 @@ const Menu = ({ setCity }) => {
                 All music are properties of their respective artists.
               </p>
             </ul>
+            <span className={ "closeCreditsIcon" } onClick={ toggleCredits }>
+              <IconContext.Provider
+                value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+                <GrClose/>
+              </IconContext.Provider>
+            </span>
           </div>
         }
-        handleClose={ toggleCredits }
       />}
     </div>
   );

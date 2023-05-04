@@ -4,21 +4,22 @@ import YouTube from 'react-youtube';
 
 import { FaVolumeUp, FaVolumeMute, FaYoutube } from 'react-icons/fa';
 
-let init = true;
+let vidSound;
 let player;
 
 const MuteButton = () => {
-    const[isMute, setIsMute] = useState(false);
+    const[isMute, setIsMute] = useState(true);
+    vidSound = isMute;
 
     const toggleMute = () => {
         if (player)
         {
-            if (!isMute) {
-                setIsMute(true)
-                player.target.mute();
-            } else {
+            if (isMute) {
                 setIsMute(false);
-                player.target.unMute();
+                player.unMute();
+            } else {
+                setIsMute(true);
+                player.mute();
             } 
         }
     }
@@ -36,44 +37,7 @@ const MuteButton = () => {
 
 export const YouTubeEmbed = ({ videoList }) => {  
     let currVideo = videoList[Math.floor(Math.random() * videoList.length)];
-  
-    const onPlayerReady = (event) => {    
-        event.target.getIframe().autoplay = "allow";
-        void event.target.setVolume(10);
-        void event.target.playVideo();
-        player = event;
-        currVideo = player.target.getVideoUrl();
-        init = false;
-    }
-
-    const onStateChange = (event) => {
-        if ((event.data !== 0) || (event.data !== 1) ||  (event.data !== 5)) {
-            void event.target.setVolume(10);
-            void event.target.playVideo();
-            player = event;
-            currVideo = player.target.getVideoUrl();
-        }
-    }
-  
-    const onEnd = (event) => {
-        currVideo = videoList[Math.floor(Math.random() * videoList.length)];
-        void event.target.loadVideoById(currVideo);
-        player = event;
-        currVideo = player.target.getVideoUrl();
-    }
     
-    let initOpts = {
-        playerVars: {
-            autoplay: 1,
-            controls: 0,
-            disablekb: 1,
-            modestbranding: 1,
-            rel: 0,
-            loop: 1,
-            mute: 1,
-        }
-    }
-
     let opts = {
         playerVars: {
             autoplay: 1,
@@ -81,9 +45,23 @@ export const YouTubeEmbed = ({ videoList }) => {
             disablekb: 1,
             modestbranding: 1,
             rel: 0,
-            loop: 1,
-            mute: 0,
+            mute: vidSound,
         }
+    }
+
+    const onPlayerReady = (event) => {  
+        player = event.target;
+        player.getIframe().autoplay = "allow";
+        player.setVolume(10);
+        player.playVideo();
+        currVideo = player.getVideoUrl();
+    }
+  
+    const onEnd = (event) => {
+        currVideo = videoList[Math.floor(Math.random() * videoList.length)];
+        player = event.target;
+        player.loadVideoById(currVideo);
+        currVideo = player.getVideoUrl();
     }
   
     return (
@@ -94,9 +72,8 @@ export const YouTubeEmbed = ({ videoList }) => {
                 <div className={ "videoResponsive" }>        
                 <YouTube id="player"
                 videoId={ currVideo } 
-                opts={ init ? initOpts : opts } 
+                opts={ opts } 
                 onReady={ onPlayerReady }
-                onStateChange={ onStateChange }
                 onEnd={ onEnd }
                 />
                 </div>
