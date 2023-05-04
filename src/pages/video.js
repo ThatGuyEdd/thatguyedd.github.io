@@ -45,6 +45,15 @@ export const YouTubeEmbed = ({ videoList }) => {
         currVideo = player.target.getVideoUrl();
         init = false;
     }
+
+    const onStateChange = (event) => {
+        if (event.data === -1) {
+            void event.target.setVolume(10);
+            void event.target.playVideo();
+            player = event;
+            currVideo = player.target.getVideoUrl();
+        }
+    }
   
     const onEnd = (event) => {
         currVideo = videoList[Math.floor(Math.random() * videoList.length)];
@@ -87,6 +96,7 @@ export const YouTubeEmbed = ({ videoList }) => {
                 videoId={ currVideo } 
                 opts={ init ? initOpts : opts } 
                 onReady={ onPlayerReady }
+                onStateChange={ onStateChange }
                 onEnd={ onEnd }
                 />
                 </div>
