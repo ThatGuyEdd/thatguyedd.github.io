@@ -170,11 +170,10 @@
 .music {
   z-index: 3;
   position: absolute;
-  top: 4px;
-  left: 3px;
 }
 
 .music iframe {
+  position: fixed;
   height: 80px;
   width: 250px;
   filter: opacity(0.1);
@@ -408,21 +407,19 @@
   .music {
     z-index: 3;
     position: absolute;
-    top: -2%;
-    left: -2.5%;
-    scale: 0.8;
   }
 
   .music iframe {
+    position: fixed;
     height: 125px;
-    width: 220px;
+    width: 200px;
     filter: opacity(0.1);
     transition: all 0.2s;
   }
 
   .music iframe:hover {
-    height: 350px;
-    width: 220px;
+    height: 400px;
+    width: 200px;
     filter: opacity(1) drop-shadow(2px 4px 6px black);
   }
 }
@@ -456,21 +453,19 @@ and (-webkit-device-pixel-ratio: 3)) {
   .music {
     z-index: 3;
     position: absolute;
-    top: -2%;
-    left: -5%;
-    scale: 0.8;
   }
 
   .music iframe {
+    position: fixed;
     height: 125px;
-    width: 220px;
+    width: 200px;
     filter: opacity(0.1);
     transition: all 0.2s;
   }
 
   .music iframe:hover {
-    height: 350px;
-    width: 220px;
+    height: 400px;
+    width: 200px;
     filter: opacity(1) drop-shadow(2px 4px 6px black);
   }
 }
