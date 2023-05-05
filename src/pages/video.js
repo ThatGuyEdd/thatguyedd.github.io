@@ -1,5 +1,6 @@
 import '../styles/App.css';
 import React, { useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import YouTube from 'react-youtube';
 
 import { FaVolumeUp, FaVolumeMute, FaYoutube } from 'react-icons/fa';
@@ -45,7 +46,7 @@ export const YouTubeEmbed = ({ videoList }) => {
             disablekb: 1,
             modestbranding: 1,
             rel: 0,
-            mute: vidSound,
+            mute: isMobile ? 1 : vidSound,
         }
     }
 

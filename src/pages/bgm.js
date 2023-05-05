@@ -10,7 +10,7 @@ export const BGM = React.memo(() => {
     const playlist = ["263367934","300494469","483718232","545610837","783832791",
                       "655383102","305665701","799182711","1234281943","356635769"];
     const trackParams = 
-        "&color=%23000000&auto_play=false&show_comments=false&show_user=false&visual=false&sharing=false";
+        "&color=%23000000&auto_play=false&show_comments=false&show_user=false&visual=false&sharing=false&show_teaser=false";
     let randPlaylist = playlist[Math.floor(Math.random() * playlist.length)];
 
     const[shuffle, setShuffle] = useState(randPlaylist);
