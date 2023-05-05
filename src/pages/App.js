@@ -159,7 +159,6 @@ const Menu = ({ setCity }) => {
                 }}
                 value={ localCity }
                 onClick={(e) => { 
-                  console.log(e.target.dataset.value, localCity);
                   if (e.target.dataset.value === localCity) { 
                     setCity("Loading");
                     setTimeout(function() { setCity(localCity); }, 1000); 
