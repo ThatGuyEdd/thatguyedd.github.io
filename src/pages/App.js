@@ -1,5 +1,6 @@
 import '../styles/App.css';
 import React, { useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import soundcloud from '../api/soundcloud';
 import { YouTubeEmbed } from './video';
 import { BGM } from './bgm';
@@ -160,6 +161,9 @@ const Menu = ({ setCity }) => {
                   if (init) {
                     soundcloud().play();
                     init = false;
+                  }
+                  if (isMobile && !init) {
+                    soundcloud().pause();
                   }
                   setLocalCity(e.target.value);
                   setCity(e.target.value);
