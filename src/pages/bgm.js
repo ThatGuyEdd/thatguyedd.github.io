@@ -8,10 +8,20 @@ import { BiShuffle } from 'react-icons/bi';
 export const BGM = React.memo(() => {    
     let vol;
     let volume;
+    let randTrack = Math.floor(Math.random() * 50);
     const playlist = ["263367934","300494469","483718232","545610837","783832791",
                       "655383102","305665701","799182711","1234281943","356635769"];
     const trackParams = 
-        "&color=%23000000&auto_play=false&show_comments=false&show_user=false&visual=false&sharing=false&show_teaser=false";
+        '&color=%23000000' +
+        '&auto_play=false' +
+        '&show_comments=false' +
+        '&show_user=false' +
+        '&sharing=false' +
+        '&download=false' +
+        '&buying=false' +
+        '&visual=false' +
+        '&show_teaser=false' +
+        '&start_track=' + randTrack;
     let randPlaylist = playlist[Math.floor(Math.random() * playlist.length)];
 
     const[shuffle, setShuffle] = useState(randPlaylist);
@@ -19,7 +29,7 @@ export const BGM = React.memo(() => {
     const shufflePlaylist = () => {
         vol = document.getElementById("volume");
         soundcloud().setVolume(vol.value);
-        setTimeout(function() { soundcloud().play() }, 2000);
+        setTimeout(function() { soundcloud().setVolume(vol.value); soundcloud().play(); }, 2500);
         setShuffle(playlist[Math.floor(Math.random() * playlist.length)]);
         randPlaylist = shuffle;
     };
