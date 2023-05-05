@@ -204,18 +204,26 @@ const Menu = ({ setCity }) => {
               sx={{ display: 'none',...(isMobile && { display: 'flex' }), 
                     paddingTop: '10px', 
                     fontWeight: 'bold'}}>
-                This site was designed for desktop. Mobile compatability may vary.
-                Upon city selection, video audio will mute and music will pause.
+                Mobile Browsers:
+                Upon changing cities, video audio will mute and music will pause.
               </Typography>
             </ul>
             <b>How to Use</b>
             <IconContext.Provider
               value={{style: { verticalAlign: 'middle'}}}>
               <ul><b>Controls</b> are on the upper right of the screen.</ul>
+              <Typography sx={{ display: 'inline',...(isMobile && { display: 'none' })}}>
               <ul>
                   Hover over the <b>music player</b> on the upper left to play/pause and view the current playlist.
                   Use the <b>slider</b> below the controls to change the music volume.
               </ul>
+              </Typography>
+              <Typography sx={{ display: 'inline',...(!isMobile && { display: 'none' })}}>
+              <ul>
+                  Tap the <b>music player</b> on the upper left to expand the music player window, 
+                  play/pause the current song, and view the playlist.
+              </ul>
+              </Typography>
               <ul>
                 <FaQuestion/> <b>- Opens How to Use Menu</b>
               </ul>

@@ -1,5 +1,6 @@
 import '../styles/App.css';
 import React, { useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import soundcloud from '../api/soundcloud';
 
 import { BiShuffle } from 'react-icons/bi';
@@ -43,7 +44,9 @@ export const BGM = React.memo(() => {
         <button className={ "shuffleButton" } onClick={ shufflePlaylist }>
             <BiShuffle className={ "shuffleIcon" }/>
         </button>
-        <input className={ "volSlider" } id="volume" type="range" min="0" max="100" step="1"></input>
+        <div style={{ display: isMobile ? 'none' : '' }}>
+            <input className={ "volSlider" } id="volume" type="range" min="0" max="100" step="1"></input>
+        </div>
         <div className={ "music" }>
             <iframe id="bgm" title="soundcloud"
                 allow="autoplay" 

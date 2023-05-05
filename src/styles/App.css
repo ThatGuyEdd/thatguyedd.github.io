@@ -387,6 +387,10 @@
     overflow: auto;
   }
 
+  .helpBoxTitle {
+    font-size: medium;
+  }
+
   .boxMenu {
     z-index: 5;
     position: fixed;
@@ -474,7 +478,11 @@ and
   .helpWrapper {
     overflow: auto;
   }
-  
+
+  .helpBoxTitle {
+    font-size: medium;
+  }
+
   .boxMenu {
     z-index: 5;
     position: fixed;
