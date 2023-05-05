@@ -7,6 +7,7 @@ import { BGM } from './bgm';
 
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import Typography from '@mui/material/Typography';
 import { FaAlignJustify, FaQuestion, FaVolumeMute, 
          FaYoutube, FaCoffee} from 'react-icons/fa';
 import { BiShuffle } from 'react-icons/bi';
@@ -198,8 +199,14 @@ const Menu = ({ setCity }) => {
             <h3 className={ "helpBoxTitle" }>Japan Walkaround 🗾 日本に歩き回る</h3>
             <ul>
               <i>Lofi music with videos of Japan.</i>
-              <br></br>
-              <sub>This site was designed for desktop. Mobile compatability may vary.</sub>
+              <Typography
+              variant='subtitle2' 
+              sx={{ display: 'none',...(isMobile && { display: 'flex' }), 
+                    paddingTop: '10px', 
+                    fontWeight: 'bold'}}>
+                This site was designed for desktop. Mobile compatability may vary.
+                Upon city selection, video audio will mute and music will pause.
+              </Typography>
             </ul>
             <b>How to Use</b>
             <IconContext.Provider

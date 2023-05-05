@@ -404,6 +404,10 @@
     filter: drop-shadow(2px 4px 6px black);
   }
 
+  .videoResponsive iframe {
+    scale: 1.3;
+  }
+
   .music {
     z-index: 3;
     position: absolute;
@@ -425,6 +429,10 @@
 }
 
 @media screen and (max-width: 1224px) and (orientation: landscape) {
+  .videoResponsive iframe {
+    scale: 1.3;
+  }
+
   .music iframe:hover {
     height: 100%;
     width: 200px;
@@ -463,6 +471,10 @@ and
   and (height: 896px) 
   and (-webkit-device-pixel-ratio: 3))
 ) {
+  .helpWrapper {
+    overflow: auto;
+  }
+  
   .boxMenu {
     z-index: 5;
     position: fixed;
@@ -478,6 +490,10 @@ and
     border: 1px solid black;
     font-family: Arial, monospace;
     filter: drop-shadow(2px 4px 6px black);
+  }
+
+  .videoResponsive iframe {
+    scale: 1.3;
   }
 
   .music {
@@ -528,6 +544,10 @@ and
   and (-webkit-device-pixel-ratio: 3))
 )
 and (orientation: landscape) {
+  .videoResponsive iframe {
+    scale: 1.3;
+  }
+
   .music iframe:hover {
     height: 100%;
     width: 200px;
