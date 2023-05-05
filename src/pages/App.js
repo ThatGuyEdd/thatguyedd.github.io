@@ -51,7 +51,7 @@ function App() {
   return (
     <>
       <div className={ "siteWrapper" }>       
-        <Menu setCity={ setCity } cityName={ city }/>
+        <Menu setCity={ setCity }/>
         <BGM/>
         <div>
           <YouTubeEmbed videoList={ cityVideos.get(`${city}`)??[] }/>
@@ -98,12 +98,12 @@ const PopupCredits = props => {
   return (
     <div className={ "creditsWrapper" }>
       <div className={ "boxCredits" }>
-          <span className={ "closeCreditsIcon" } onClick={ props.handleClose }>
-            <IconContext.Provider
-              value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
-              <GrClose/>
-            </IconContext.Provider>
-          </span>
+        <span className={ "closeCreditsIcon" } onClick={ props.handleClose }>
+          <IconContext.Provider
+            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+            <GrClose/>
+          </IconContext.Provider>
+        </span>
         { props.content }
       </div>
     </div>
@@ -158,12 +158,19 @@ const Menu = ({ setCity }) => {
                 MenuProps={{ PaperProps: { sx: { maxHeight: 300 }}
                 }}
                 value={ localCity }
+                onClick={(e) => { 
+                  console.log(e.target.dataset.value, localCity);
+                  if (e.target.dataset.value === localCity) { 
+                    setCity("Loading");
+                    setTimeout(function() { setCity(localCity); }, 1000); 
+                  } 
+                }}
                 onChange={(e) => {
-                  if (init) {
+                  if (init && !isMobile) {
                     soundcloud().play();
                     init = false;
                   }
-                  if (isMobile && !init) {
+                  if (isMobile) {
                     soundcloud().pause();
                   }
                   setLocalCity(e.target.value);
@@ -269,7 +276,7 @@ const Menu = ({ setCity }) => {
               </p>
               <p>
                 Videos from <a href="https://www.youtube.com/@Rambalac" 
-                              target="_blank" rel="noopener noreferrer">
+                               target="_blank" rel="noopener noreferrer">
                 <b><u>@Rambalac</u></b>
                 </a>
               </p>
