@@ -80,7 +80,7 @@ const PopupHelp = props => {
 const PopupMenu = props => {
   return (
     <div className={ "menuWrapper" }>
-      <div className={ "boxMenu" }>
+      <div className={ "boxMenu" } style={{ top: isMobile ? '40px' : '' }}>
         <span className={ "closeMenuIcon" } onClick={ props.handleClose }>
           <IconContext.Provider
             value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
