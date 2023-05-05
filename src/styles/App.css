@@ -65,9 +65,9 @@
 
 .creditsButton {
   z-index: 5;
-  position: absolute;
-  top: 80px;
-  right: -15px;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,7 +84,7 @@
   position: fixed;
   top: 63px;
   right: 0%;
-  height: 125px;
+  height: 120px;
   min-height: 10vh;
   width: 180px;
   margin: 0;
@@ -380,7 +380,7 @@
 
 /* #endregion */
 
-/* #region <Mobile Stylings> */
+/* #region <Generic Mobile Stylings> */
 
 @media screen and (max-width: 1224px) {
   .helpWrapper {
@@ -392,7 +392,7 @@
     position: fixed;
     top: 60px;
     right: 0px;
-    height: 100px;
+    height: 120px;
     width: 180px;
     min-height: 10vh;
     margin: 0;
@@ -418,7 +418,15 @@
   }
 
   .music iframe:hover {
-    height: 400px;
+    height: 75%;
+    width: 200px;
+    filter: opacity(1) drop-shadow(2px 4px 6px black);
+  }
+}
+
+@media screen and (max-width: 1224px) and (orientation: landscape) {
+  .music iframe:hover {
+    height: 100%;
     width: 200px;
     filter: opacity(1) drop-shadow(2px 4px 6px black);
   }
@@ -426,19 +434,41 @@
 
 /* #endregion */
 
-/* #region <iOS Stylings TEST> */
+/* #region <iPhone Specific Stylings> */
 
 @media screen 
 and
-((max-width: 390px) 
-and (max-height: 844px) 
-and (-webkit-device-pixel-ratio: 3)) {
+(
+  ((width: 375px) 
+  and (height: 812px) 
+  and (-webkit-device-pixel-ratio: 3))
+    or 
+  ((max-width: 390px) 
+  and (max-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3)) 
+    or 
+  ((width: 428px) 
+  and (height: 926px) 
+  and (-webkit-device-pixel-ratio: 3))
+    or 
+  ((width: 414px) 
+  and (height: 896px) 
+  and (-webkit-device-pixel-ratio: 2))
+    or 
+  ((width: 375px) 
+  and (height: 812px) 
+  and (-webkit-device-pixel-ratio: 3))
+    or 
+  ((width: 414px) 
+  and (height: 896px) 
+  and (-webkit-device-pixel-ratio: 3))
+) {
   .boxMenu {
     z-index: 5;
     position: fixed;
     top: 60px;
     right: 0px;
-    height: 100px;
+    height: 120px;
     width: 180px;
     min-height: 10vh;
     margin: 0;
@@ -464,7 +494,42 @@ and (-webkit-device-pixel-ratio: 3)) {
   }
 
   .music iframe:hover {
-    height: 400px;
+    height: 75%;
+    width: 200px;
+    filter: opacity(1) drop-shadow(2px 4px 6px black);
+  }
+}
+
+@media screen 
+and
+(
+  ((width: 375px) 
+  and (height: 812px) 
+  and (-webkit-device-pixel-ratio: 3))
+    or 
+  ((max-width: 390px) 
+  and (max-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3)) 
+    or 
+  ((width: 428px) 
+  and (height: 926px) 
+  and (-webkit-device-pixel-ratio: 3))
+    or 
+  ((width: 414px) 
+  and (height: 896px) 
+  and (-webkit-device-pixel-ratio: 2))
+    or 
+  ((width: 375px) 
+  and (height: 812px) 
+  and (-webkit-device-pixel-ratio: 3))
+    or 
+  ((width: 414px) 
+  and (height: 896px) 
+  and (-webkit-device-pixel-ratio: 3))
+)
+and (orientation: landscape) {
+  .music iframe:hover {
+    height: 100%;
     width: 200px;
     filter: opacity(1) drop-shadow(2px 4px 6px black);
   }
