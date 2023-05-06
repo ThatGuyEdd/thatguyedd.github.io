@@ -455,8 +455,8 @@ and
   and (height: 812px) 
   and (-webkit-device-pixel-ratio: 3))
     or 
-  ((max-width: 390px) 
-  and (max-height: 844px) 
+  ((width: 390px) 
+  and (height: 844px) 
   and (-webkit-device-pixel-ratio: 3)) 
     or 
   ((width: 428px) 
@@ -531,8 +531,8 @@ and
   and (height: 812px) 
   and (-webkit-device-pixel-ratio: 3))
     or 
-  ((max-width: 390px) 
-  and (max-height: 844px) 
+  ((width: 390px) 
+  and (height: 844px) 
   and (-webkit-device-pixel-ratio: 3)) 
     or 
   ((width: 428px) 
