@@ -9,7 +9,8 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import { FaAlignJustify, FaQuestion, FaVolumeMute, 
-         FaYoutube, FaCoffee} from 'react-icons/fa';
+         FaYoutube, FaTwitter } from 'react-icons/fa';
+import { BiCoffeeTogo } from 'react-icons/bi';
 import { BiShuffle } from 'react-icons/bi';
 import { GrClose } from 'react-icons/gr';
 import { IconContext } from 'react-icons';
@@ -27,6 +28,8 @@ function App() {
   const kobeVideos      = ["mHXp_o0beOE"];
   const kyotoVideos     = ["Se15xH-IuMQ","rAeN7TdGq4o","yqf4pUWzP4Q","kd-OLM-6GRE","aaaxRIBPbXE"];
   const naraVideos      = ["JO9RgHdg9S8"];
+  const nagoyaVideos    = ["w0SJgbALym8","e1J6DYeJFas"];
+  const niigataVideos   = ["0lY98l3tOrM","tVCHthFQEUY","uxzdurP56U0"];
   const osakaVideos     = ["GJZLXiNOqqA","ThenfmXRbkQ","pu9BorxYjBQ","XHD2KtDXClc","ahZbCdrUVaQ"];
   const sapporoVideos   = ["aDCwZIUop6s","f6E1rTfwIWc","w46op-H-TsQ"];
   const sendaiVideos    = ["cHjKckxsOCs","Mo31lwe_gv4"];
@@ -40,6 +43,8 @@ function App() {
   cityVideos.set('Kobe'       ,   kobeVideos);
   cityVideos.set('Kyoto'      ,   kyotoVideos);
   cityVideos.set('Nara'       ,   naraVideos);
+  cityVideos.set('Nagoya'     ,   nagoyaVideos);
+  cityVideos.set('Niigata'    ,   niigataVideos);
   cityVideos.set('Osaka'      ,   osakaVideos);
   cityVideos.set('Sapporo'    ,   sapporoVideos);
   cityVideos.set('Sendai'     ,   sendaiVideos);
@@ -81,6 +86,20 @@ const PopupMenu = props => {
   return (
     <div className={ "menuWrapper" }>
       <div className={ "boxMenu" } style={{ top: isMobile ? '40px' : '' }}>
+        <div className={ "twitterLink" }>
+          <a href="https://twitter.com/ThatGuyEdd" 
+            target="_blank" rel="noopener noreferrer">
+          <FaTwitter/></a>
+        </div>
+        <div className={ "kofiLink" }>
+          <a href="https://ko-fi.com/thatguyedd" 
+            target="_blank" rel="noopener noreferrer">
+          <BiCoffeeTogo/></a>
+        </div>
+        <button className={ "creditsButton" }
+          onClick={ props.handelCredits }>
+          <b>Credits</b>
+        </button>
         <span className={ "closeMenuIcon" } onClick={ props.handleClose }>
           <IconContext.Provider
             value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
@@ -184,19 +203,17 @@ const Menu = ({ setCity }) => {
                 <MenuItem value={ "Kobe" }>Kobe</MenuItem>
                 <MenuItem value={ "Kyoto" }>Kyoto</MenuItem>
                 <MenuItem value={ "Nara" }>Nara</MenuItem>
+                <MenuItem value={ "Nagoya" }>Nagoya</MenuItem>
+                <MenuItem value={ "Niigata" }>Niigata</MenuItem>
                 <MenuItem value={ "Osaka" }>Osaka</MenuItem>
                 <MenuItem value={ "Sapporo" }>Sapporo</MenuItem>
                 <MenuItem value={ "Sendai" }>Sendai</MenuItem>
                 <MenuItem value={ "Tokyo" }>Tokyo</MenuItem>
               </Select>
-              <button className={ "creditsButton" }
-                type="button"
-                onClick={ toggleCredits }>
-                <b>Credits</b>
-              </button>
             </div>       
           </>
         }
+        handelCredits={ toggleCredits }
         handleClose={ toggleMenu }
       />}
       {helpOpen && localStorage.getItem("showHelp") && <PopupHelp
@@ -246,8 +263,8 @@ const Menu = ({ setCity }) => {
                 <FaYoutube/> <b>- Current Video Source</b>
               </ul>
               <sub>
-                <FaCoffee/> Want to buy me a <a href="https://ko-fi.com/thatguyedd" 
-                                              target="_blank" rel="noopener noreferrer">
+                <BiCoffeeTogo size="1.35em"/>Want to buy me a <a href="https://ko-fi.com/thatguyedd" 
+                                                               target="_blank" rel="noopener noreferrer">
                 <b><u>coffee</u></b>
                 </a>?
               </sub>
@@ -269,13 +286,13 @@ const Menu = ({ setCity }) => {
             <ul>
               <p>
                 Website by <a href="https://twitter.com/ThatGuyEdd" 
-                              target="_blank" rel="noopener noreferrer">
+                            target="_blank" rel="noopener noreferrer">
                 <b><u>@ThatGuyEdd</u></b>
                 </a> 
               </p>
               <p>
                 Videos from <a href="https://www.youtube.com/@Rambalac" 
-                               target="_blank" rel="noopener noreferrer">
+                             target="_blank" rel="noopener noreferrer">
                 <b><u>@Rambalac</u></b>
                 </a>
               </p>

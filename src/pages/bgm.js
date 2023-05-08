@@ -16,6 +16,7 @@ export const BGM = React.memo(() => {
         '&auto_play=false' +
         '&show_comments=false' +
         '&show_user=false' +
+        '&show_artwork=false' +
         '&sharing=false' +
         '&download=false' +
         '&buying=false' +
