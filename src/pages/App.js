@@ -88,16 +88,16 @@ const PopupMenu = props => {
       <div className={ "boxMenu" } style={{ top: isMobile ? '40px' : '' }}>
         <div className={ "twitterLink" }>
           <a href="https://twitter.com/ThatGuyEdd" 
-            target="_blank" rel="noopener noreferrer">
+           target="_blank" rel="noopener noreferrer">
           <FaTwitter/></a>
         </div>
         <div className={ "kofiLink" }>
           <a href="https://ko-fi.com/thatguyedd" 
-            target="_blank" rel="noopener noreferrer">
+           target="_blank" rel="noopener noreferrer">
           <BiCoffeeTogo/></a>
         </div>
         <button className={ "creditsButton" }
-          onClick={ props.handelCredits }>
+          onClick={ props.handleCredits }>
           <b>Credits</b>
         </button>
         <span className={ "closeMenuIcon" } onClick={ props.handleClose }>
@@ -156,11 +156,9 @@ const Menu = ({ setCity }) => {
   return (
     <div>
       <button className={ "helpButton" }
-        type="button"
         onClick={ toggleHelpPopup }
       ><FaQuestion/></button>
       <button className={ "menuButton" }
-        type="button"
         onClick={ toggleMenu }
       ><FaAlignJustify/></button>
       {menuOpen && <PopupMenu
@@ -213,7 +211,7 @@ const Menu = ({ setCity }) => {
             </div>       
           </>
         }
-        handelCredits={ toggleCredits }
+        handleCredits={ toggleCredits }
         handleClose={ toggleMenu }
       />}
       {helpOpen && localStorage.getItem("showHelp") && <PopupHelp
