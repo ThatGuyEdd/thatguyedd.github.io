@@ -274,7 +274,6 @@
 }
 
 .vidLinkButton {
-  border-radius: 50%;
   height: 30px;
   width: 30px;
   display: flex;
@@ -282,6 +281,7 @@
   color: black;
   background: white;
   border-color: black;
+  border-radius: 50%;
 }
 
 .vidLinkIcon {
@@ -302,7 +302,7 @@
   display: flex;
   align-items: center;
   background: white;
-  border-radius: black;
+  border-color: black;
   border-radius: 50%;
   color: black;
   filter: opacity(0.3);
