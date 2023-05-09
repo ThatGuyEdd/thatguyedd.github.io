@@ -27,8 +27,8 @@ function App() {
   const hiroshimaVideos = ["NxXevpGGFBM","9UMn6CVizOw"];
   const kobeVideos      = ["mHXp_o0beOE"];
   const kyotoVideos     = ["Se15xH-IuMQ","rAeN7TdGq4o","yqf4pUWzP4Q","kd-OLM-6GRE","aaaxRIBPbXE"];
-  const naraVideos      = ["JO9RgHdg9S8"];
   const nagoyaVideos    = ["w0SJgbALym8","e1J6DYeJFas"];
+  const naraVideos      = ["JO9RgHdg9S8"];
   const niigataVideos   = ["0lY98l3tOrM","tVCHthFQEUY","uxzdurP56U0"];
   const osakaVideos     = ["GJZLXiNOqqA","ThenfmXRbkQ","pu9BorxYjBQ","XHD2KtDXClc","ahZbCdrUVaQ"];
   const sapporoVideos   = ["aDCwZIUop6s","f6E1rTfwIWc","w46op-H-TsQ"];
@@ -200,8 +200,8 @@ const Menu = ({ setCity }) => {
                 <MenuItem value={ "Hiroshima" }>Hiroshima</MenuItem>
                 <MenuItem value={ "Kobe" }>Kobe</MenuItem>
                 <MenuItem value={ "Kyoto" }>Kyoto</MenuItem>
-                <MenuItem value={ "Nara" }>Nara</MenuItem>
                 <MenuItem value={ "Nagoya" }>Nagoya</MenuItem>
+                <MenuItem value={ "Nara" }>Nara</MenuItem>
                 <MenuItem value={ "Niigata" }>Niigata</MenuItem>
                 <MenuItem value={ "Osaka" }>Osaka</MenuItem>
                 <MenuItem value={ "Sapporo" }>Sapporo</MenuItem>
