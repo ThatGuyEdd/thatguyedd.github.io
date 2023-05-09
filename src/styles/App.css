@@ -34,6 +34,17 @@
   background: none;
 }
 
+.videoDebug {
+  z-index: 3;
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  background: rgb(255,255,255,0.75);
+  border-radius: 10%;
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
+
 /* #region <City Menu> */
 
 .menu {
@@ -400,7 +411,8 @@
 .shuffleButton:hover  ,
 .vidLink:hover        , 
 .volSlider:hover      ,   
-.dontShowPopup:hover  {
+.dontShowPopup:hover  ,
+.videoDebug:hover {
   filter: opacity(1) drop-shadow(2px 4px 6px black);
 }
 

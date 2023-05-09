@@ -64,6 +64,12 @@ export const YouTubeEmbed = ({ videoList }) => {
         player.loadVideoById(currVideo);
         currVideo = player.getVideoUrl();
     }
+
+    const videoDebug = () => {
+        if (player) {
+            player.playVideo();
+        }
+    }
   
     return (
         <>
@@ -82,12 +88,18 @@ export const YouTubeEmbed = ({ videoList }) => {
         </div>
         <div>
             <a className={ "vidLink" } 
-            href={ 'https://www.youtube.com/watch?v=' + currVideo }
-            target="_blank" rel="noopener noreferrer">
+             href={ 'https://www.youtube.com/watch?v=' + currVideo }
+             target="_blank" rel="noopener noreferrer">
             <button className={ "vidLinkButton" }>
                 <FaYoutube className={ "vidLinkIcon" }/>
             </button>
             </a>
+        </div>
+        <div style={{ display: !isMobile ? 'none' : '' }}>
+            <button className={ "videoDebug" } 
+             onClick={ videoDebug }>
+                Video paused? Tap here.
+            </button>
         </div>
         </>
     );
