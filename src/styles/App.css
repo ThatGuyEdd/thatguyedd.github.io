@@ -40,7 +40,7 @@
   bottom: 0%;
   right: 0%;
   background: rgb(255,255,255,0.75);
-  border-radius: 10%;
+  color: black;
   filter: opacity(0.3);
   transition: all 0.2s;
 }
@@ -70,6 +70,7 @@
   border-color: black;
   border-radius: 50%;
   font-family: Arial, monospace;
+  color: black;
   filter: opacity(0.3);
   transition: all 0.2s;
 }
@@ -193,6 +194,7 @@
   background: white;
   border-color: black;
   border-radius: 50%;
+  color: black;
   transition: all 0.2s;
 }
 
@@ -235,6 +237,7 @@
   background: white;
   border-color: black;
   border-radius: 50%;
+  color: black;
   filter: opacity(0.3);
   transition: all 0.2s;
 }
@@ -276,6 +279,7 @@
   width: 30px;
   display: flex;
   align-items: center;
+  color: black;
   background: white;
   border-color: black;
 }
@@ -300,6 +304,7 @@
   background: white;
   border-radius: black;
   border-radius: 50%;
+  color: black;
   filter: opacity(0.3);
   transition: all 0.2s;
 }

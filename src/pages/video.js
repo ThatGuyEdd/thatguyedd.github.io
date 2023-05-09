@@ -95,7 +95,7 @@ export const YouTubeEmbed = ({ videoList }) => {
             </button>
             </a>
         </div>
-        <div style={{ display: !isMobile ? 'none' : '' }}>
+        <div style={{ display: isMobile ? 'none' : '' }}>
             <button className={ "videoDebug" } 
              onClick={ videoDebug }>
                 Video paused? Tap here.
