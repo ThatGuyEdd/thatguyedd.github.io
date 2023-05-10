@@ -220,13 +220,14 @@ const Menu = ({ setCity }) => {
             <h3 className={ "helpBoxTitle" }>Japan Walkaround 🗾 日本に歩き回る</h3>
             <ul>
               <i>Lofi music with videos of Japan.</i>
+            </ul>
+            <ul>
               <Typography
               variant='subtitle2' 
-              sx={{ display: 'none',...(isMobile && { display: 'flex' }), 
-                    paddingTop: '10px', 
-                    fontWeight: 'bold'}}>
-                Mobile Browsers:
-                Upon changing cities, video audio will mute and music will pause.
+              sx={{ display: 'none',...(isMobile && { display: 'inline' }), 
+              paddingTop: '10px' }}>
+                <b>Mobile Browsers:</b> Changing city will pause the music and mute video audio.
+                If video is not playing, tap the button on the bottom right.
               </Typography>
             </ul>
             <b>How to Use</b>
