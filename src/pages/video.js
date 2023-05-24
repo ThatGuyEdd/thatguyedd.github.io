@@ -1,5 +1,6 @@
 import '../styles/App.css';
 import React, { useState } from 'react';
+import IconButton from '@mui/material/IconButton';
 import { isMobile } from 'react-device-detect';
 import YouTube from 'react-youtube';
 
@@ -26,13 +27,24 @@ const MuteButton = () => {
     }
 
     return (
-        <button className={ "muteButton" } onClick={ toggleMute }>
-        {
-            isMute ?
-            <FaVolumeMute className={ "muteIcon" }/> :
-            <FaVolumeUp className={ "muteIcon" }/>
-        }
-        </button>
+        <div className={ "muteButton" }>
+            <IconButton
+                size='small'
+                disableRipple
+                iconStyle
+                sx={{
+                    background: 'white',
+                    color: 'black',
+                    border: 1.5,
+                    borderColor: 'black'}} 
+                onClick={ toggleMute }>
+                {
+                    isMute ?
+                    <FaVolumeMute style={{ transform: 'scale(1)' }}/> :
+                    <FaVolumeUp style={{ transform: 'scale(1.1)' }}/>
+                }
+            </IconButton>
+        </div>
     );
 };
 
@@ -90,9 +102,20 @@ export const YouTubeEmbed = ({ videoList }) => {
             <a className={ "vidLink" } 
              href={ 'https://www.youtube.com/watch?v=' + currVideo }
              target="_blank" rel="noopener noreferrer">
-            <button className={ "vidLinkButton" }>
-                <FaYoutube className={ "vidLinkIcon" }/>
-            </button>
+            <div className={ "vidLinkButton" }>
+                <IconButton
+                    size='small'
+                    disableRipple
+                    iconStyle
+                    sx={{
+                        background: 'white',
+                        color: 'black',
+                        border: 1.5,
+                        borderColor: 'black'}}
+                    >
+                    <FaYoutube/>
+                </IconButton>
+            </div>
             </a>
         </div>
         <div style={{ display: !isMobile ? 'none' : '' }}>

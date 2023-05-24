@@ -6,6 +6,7 @@ import { YouTubeEmbed } from './video';
 import { BGM } from './bgm';
 
 import Select from '@mui/material/Select';
+import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import { FaAlignJustify, FaQuestion, FaVolumeMute, 
@@ -68,11 +69,14 @@ function App() {
 
 const PopupHelp = props => {
   return (
-    <div className={ "helpWrapper" }>
-      <div className={ "boxHelp" }>
-        <span className={ "closeHelpIcon" } onClick={ props.handleClose }>
+    <div id="helpWrapper" className={ "helpWrapper" }>
+      <div id="help" className={ "boxHelp" }>
+        <span className={ "closeHelpIcon" } onClick={function() {
+            document.getElementById("help").className="boxHelpClose";
+            document.getElementById("helpWrapper").className="helpWrapperClose";
+            setTimeout(function() { props.handleClose(); }, 650); }}>
           <IconContext.Provider
-            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+            value={{style: { verticalAlign: 'middle', scale: '0.75' }}}>
             <GrClose/>
           </IconContext.Provider>
         </span>
@@ -85,7 +89,7 @@ const PopupHelp = props => {
 const PopupMenu = props => {
   return (
     <div className={ "menuWrapper" }>
-      <div className={ "boxMenu" } style={{ top: isMobile ? '40px' : '' }}>
+      <div id="menu" className={ "boxMenu" } style={{ top: isMobile ? '40px' : '' }}>
         <div className={ "twitterLink" }>
           <a href="https://twitter.com/ThatGuyEdd" 
            target="_blank" rel="noopener noreferrer">
@@ -97,12 +101,22 @@ const PopupMenu = props => {
           <BiCoffeeTogo/></a>
         </div>
         <button className={ "creditsButton" }
-          onClick={ props.handleCredits }>
+          onClick={function() {
+            if(document.getElementById("credits")) {
+              document.getElementById("credits").className="boxCreditsClose";
+              setTimeout(function() { props.handleCredits(); }, 700); 
+            }
+            else {
+              props.handleCredits();
+            }
+          }}>
           <b>Credits</b>
         </button>
-        <span className={ "closeMenuIcon" } onClick={ props.handleClose }>
+        <span className={ "closeMenuIcon" } onClick={function() {
+            document.getElementById("menu").className="boxMenuClose";
+            setTimeout(function() { props.handleClose(); }, 700); }}>
           <IconContext.Provider
-            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+            value={{style: { verticalAlign: 'middle', scale: '0.75' }}}>
             <GrClose/>
           </IconContext.Provider>
         </span>
@@ -116,10 +130,12 @@ const PopupMenu = props => {
 const PopupCredits = props => {
   return (
     <div className={ "creditsWrapper" }>
-      <div className={ "boxCredits" }>
-        <span className={ "closeCreditsIcon" } onClick={ props.handleClose }>
+      <div id="credits" className={ "boxCredits" }>
+        <span className={ "closeCreditsIcon" } onClick={function() {
+            document.getElementById("credits").className="boxCreditsClose";
+            setTimeout(function() { props.handleClose(); }, 700); }}>
           <IconContext.Provider
-            value={{style: { verticalAlign: 'middle', scale: '0.75'}}}>
+            value={{style: { verticalAlign: 'middle', scale: '0.75' }}}>
             <GrClose/>
           </IconContext.Provider>
         </span>
@@ -155,12 +171,40 @@ const Menu = ({ setCity }) => {
 
   return (
     <div>
-      <button className={ "helpButton" }
-        onClick={ toggleHelpPopup }
-      ><FaQuestion/></button>
-      <button className={ "menuButton" }
-        onClick={ toggleMenu }
-      ><FaAlignJustify/></button>
+      <div className={ "helpButton" }>
+        <IconButton 
+          size='small'
+          disableRipple
+          sx={{
+            background: 'white',
+            color: 'black',
+            border: 1.5,
+            borderColor: 'black'}}
+          onClick={ toggleHelpPopup }>
+          <FaQuestion style={{ transform: 'scale(0.9)' }}/>
+        </IconButton>
+      </div>
+      <div className={ "menuButton" }>
+        <IconButton 
+          size='small'
+          disableRipple
+          sx={{
+            background: 'white',
+            color: 'black',
+            border: 1.5,
+            borderColor: 'black'}}
+          onClick={function() {
+            if(document.getElementById("menu")) {
+              document.getElementById("menu").className="boxMenuClose";
+              setTimeout(function() { toggleMenu(); }, 700); 
+            }
+            else {
+              toggleMenu();
+            }
+          }}>
+          <FaAlignJustify style={{ transform: 'scale(0.85)' }}/>
+        </IconButton>
+      </div>
       {menuOpen && <PopupMenu
         content={
           <>
@@ -172,8 +216,7 @@ const Menu = ({ setCity }) => {
                 fontWeight: 'bold',
                 backgroundColor: 'rgb(255,255,255,0.5)',
                 outline: '1px solid black'}}
-                MenuProps={{ PaperProps: { sx: { maxHeight: 300 }}
-                }}
+                MenuProps={{ PaperProps: { sx: { maxHeight: 300 }} }}
                 value={ localCity }
                 onClick={(e) => { 
                   if (e.target.dataset.value === localCity) { 
@@ -262,14 +305,19 @@ const Menu = ({ setCity }) => {
                 <FaYoutube/> <b>- Current Video Source</b>
               </ul>
               <sub>
-                <BiCoffeeTogo size="1.35em"/>Want to buy me a <a href="https://ko-fi.com/thatguyedd" 
-                                                               target="_blank" rel="noopener noreferrer">
+                <BiCoffeeTogo  
+                  style={{ paddingBottom: 2, transform: 'scale(1.2)' }}/>
+                  Want to buy me a <a href="https://ko-fi.com/thatguyedd" 
+                                    target="_blank" rel="noopener noreferrer">
                 <b><u>coffee</u></b>
                 </a>?
               </sub>
               <sub>
                 <button className={ "dontShowPopup" }
-                onClick={ toggleShowHelp }>
+                  onClick={function() {
+                    document.getElementById("help").className="boxHelpClose";
+                    document.getElementById("helpWrapper").className="helpWrapperClose";
+                    setTimeout(function() { toggleShowHelp(); }, 700); }}>
                   <b>Close & Don't Show Again</b>
                 </button>
               </sub>

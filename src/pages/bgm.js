@@ -1,5 +1,6 @@
 import '../styles/App.css';
 import React, { useState } from 'react';
+import IconButton from '@mui/material/IconButton';
 import { isMobile } from 'react-device-detect';
 import soundcloud from '../api/soundcloud';
 
@@ -52,9 +53,20 @@ export const BGM = React.memo(() => {
   
     return (
         <>
-        <button className={ "shuffleButton" } onClick={ shufflePlaylist }>
-            <BiShuffle className={ "shuffleIcon" }/>
-        </button>
+        <div className={ "shuffleButton" }>
+            <IconButton 
+                size='small'
+                disableRipple
+                iconStyle
+                sx={{
+                    background: 'white',
+                    color: 'black',
+                    border: 1.5,
+                    borderColor: 'black'}}
+                onClick={ shufflePlaylist }>
+                <BiShuffle style={{ transform: 'scale(1.15)' }}/>
+            </IconButton>
+        </div>
         <div style={{ display: isMobile ? 'none' : '' }}>
             <input className={ "volSlider" } id="volume" type="range" min="0" max="100" step="1"></input>
         </div>
