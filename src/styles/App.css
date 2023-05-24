@@ -48,17 +48,6 @@
   background: none;
 }
 
-.videoDebug {
-  z-index: 3;
-  position: fixed;
-  bottom: 0%;
-  right: 0%;
-  background: rgb(255,255,255,0.75);
-  color: black;
-  filter: opacity(0.3);
-  transition: all 0.2s;
-}
-
 /* #region <Control Buttons> */
 
 .helpButton {
@@ -121,6 +110,80 @@
 
 /* #endregion */
 
+/* #region <Help Popup> */
+
+.boxHelp {
+  z-index: 5;
+  position: relative;
+  height: fit-content;
+  width: 50vw;
+  min-width: 350px;
+  max-width: 500px;
+  padding: 20px;
+  padding-bottom: 50px;
+  margin: 0;
+  background: rgb(211, 211, 211, 0.75);
+  border: 1px solid black;
+  border-radius: 10px;
+  font-family: Arial, monospace;
+  filter: drop-shadow(2px 4px 6px black);
+  animation-name: fadeInHelp;
+  animation-duration: 0.75s;
+}
+
+.boxHelpClose { 
+  z-index: 5;
+  position: relative;
+  height: fit-content;
+  width: 50vw;
+  min-width: 350px;
+  max-width: 500px;
+  padding: 20px;
+  padding-bottom: 50px;
+  margin: 0;
+  background: rgb(211, 211, 211, 0.75);
+  border: 1px solid black;
+  border-radius: 10px;
+  font-family: Arial, monospace;
+  filter: drop-shadow(2px 4px 6px black);
+  animation-name: fadeOutHelp;
+  animation-duration: 0.75s;
+}
+
+.closeHelpIcon {
+  z-index: 5;
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  background: #ededed;
+  border: 1.5px solid black;
+  border-radius: 50%;
+  transform: scale(0.85);
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
+
+.helpBoxTitle {
+  margin-top: 0;
+  text-align: center;
+}
+
+.dontShowPopup {
+  z-index: 5;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  background: rgb(255,255,255,0.75);
+  border: 1.5px solid black;
+  color: black;
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
+
+/* #endregion */
+
 /* #region <City Menu> */
 
 .menu {
@@ -151,10 +214,6 @@
   transition: all 0.2s;
 }
 
-.twitterLink:hover, .kofiLink:hover {
-  filter: opacity(1);
-}
-
 .creditsButton {
   z-index: 5;
   position: absolute;
@@ -168,10 +227,6 @@
   color: black;
   filter: opacity(0.3);
   transition: all 0.2s;
-}
-
-.creditsButton:hover {
-  filter: opacity(1);
 }
 
 .boxMenu {
@@ -215,158 +270,12 @@
 .closeMenuIcon {
   z-index: 5;
   position: absolute;
-  top: 4%;
-  right: 2%;
-  width: 25px;
-  height: 25px;
-  line-height: 20px;
-  text-align: center;
+  top: 3px;
+  right: 3px;
   background: #ededed;
   border: 1.5px solid black;
   border-radius: 50%;
-  font-size: 20px;
-  filter: opacity(0.3);
-  transition: all 0.2s;
-}
-
-/* #endregion */
-
-/* #region <Video Player> */
-
-.videoResponsive {
-  z-index: 1;
-  position: relative;
-  width: 300%;
-  height: 100vh;
-  left: -100%;
-  padding-bottom: 56.25%;
-  padding-top: 25px;
-}
-
-.videoResponsive iframe {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-
-.videoWrapper {
-  z-index: 1;
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-/* #endregion */
-
-/* #region <Music Player> */
-
-.music {
-  z-index: 3;
-  position: absolute;
-}
-
-.music iframe {
-  position: fixed;
-  height: 70px;
-  width: 300px;
-  filter: opacity(0.1);
-  transition: all 0.2s;
-}
-
-.music iframe:hover {
-  height: 450px;
-  width: 300px;
-  filter: opacity(1) drop-shadow(2px 4px 6px black);
-}
-
-.volSlider {
-  z-index: 3;
-  top: 40px;
-  right: 2px;
-  height: 10px;
-  width: 174px;
-  filter: opacity(0.3);
-  position: fixed;
-  background: white;
-  transition: all 0.2s;
-}
-
-/* #endregion */
-
-/* #region <Help Popup> */
-
-.boxHelp {
-  z-index: 5;
-  position: relative;
-  height: fit-content;
-  width: 50vw;
-  min-width: 350px;
-  max-width: 600px;
-  padding: 20px;
-  padding-bottom: 50px;
-  margin: 0;
-  background: rgb(211, 211, 211, 0.75);
-  border: 1px solid black;
-  border-radius: 10px;
-  font-family: Arial, monospace;
-  filter: drop-shadow(2px 4px 6px black);
-  animation-name: fadeInHelp;
-  animation-duration: 0.75s;
-}
-
-.boxHelpClose { 
-  z-index: 5;
-  position: relative;
-  height: fit-content;
-  width: 50vw;
-  min-width: 350px;
-  max-width: 600px;
-  padding: 20px;
-  padding-bottom: 50px;
-  margin: 0;
-  background: rgb(211, 211, 211, 0.75);
-  border: 1px solid black;
-  border-radius: 10px;
-  font-family: Arial, monospace;
-  filter: drop-shadow(2px 4px 6px black);
-  animation-name: fadeOutHelp;
-  animation-duration: 0.75s;
-}
-
-.closeHelpIcon {
-  z-index: 5;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  width: 25px;
-  height: 25px;
-  line-height: 20px;
-  font-size: 20px;
-  text-align: center;
-  background: #ededed;
-  border: 1.5px solid black;
-  border-radius: 50%;
-  filter: opacity(0.3);
-  transition: all 0.2s;
-}
-
-.helpBoxTitle {
-  margin-top: 0;
-}
-
-.dontShowPopup {
-  z-index: 5;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5px;
-  background: rgb(255,255,255,0.75);
-  border: 1.5px solid black;
-  color: black;
+  transform: scale(0.85);
   filter: opacity(0.3);
   transition: all 0.2s;
 }
@@ -412,16 +321,12 @@
 .closeCreditsIcon {
   z-index: 5;
   position: absolute;
-  right: 5px;
-  top: 5px;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  line-height: 20px;
+  top: 4px;
+  right: 4px;
   background: #ededed;
   border: 1.5px solid black;
   border-radius: 50%;
-  font-size: 20px;
+  transform: scale(0.85);
   filter: opacity(0.3);
   transition: all 0.2s;
 }
@@ -431,6 +336,82 @@
   position: relative;
   height: fit-content;
   font-family: Arial, monospace;
+}
+
+/* #endregion */
+
+/* #region <Video Player> */
+
+.videoResponsive {
+  z-index: 1;
+  position: relative;
+  width: 300%;
+  height: 100vh;
+  left: -100%;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+}
+
+.videoResponsive iframe {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.videoWrapper {
+  z-index: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.videoDebug {
+  z-index: 3;
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  background: rgb(255,255,255,0.75);
+  color: black;
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
+
+/* #endregion */
+
+/* #region <Music Player> */
+
+.music {
+  z-index: 3;
+  position: absolute;
+}
+
+.music iframe {
+  position: fixed;
+  height: 70px;
+  width: 300px;
+  filter: opacity(0.1);
+  transition: all 0.2s;
+}
+
+.music iframe:hover {
+  height: 450px;
+  width: 300px;
+  filter: opacity(1) drop-shadow(2px 4px 6px black);
+}
+
+.volSlider {
+  z-index: 3;
+  top: 40px;
+  right: 2px;
+  height: 10px;
+  width: 174px;
+  filter: opacity(0.3);
+  position: fixed;
+  background: white;
+  transition: all 0.2s;
 }
 
 /* #endregion */
@@ -471,16 +452,14 @@
 
 /* #region <Hover Stylings> */
 
-.helpButton:hover     ,   .closeHelpIcon:hover    ,
-.closeMenuIcon:hover  ,   .closeCreditsIcon:hover ,
-.menuButton:hover     ,   
-.muteButton:hover     ,   
-.shuffleButton:hover  ,
-.vidLink:hover        , 
-.volSlider:hover      ,   
-.dontShowPopup:hover  ,
-.videoDebug:hover {
-  filter: opacity(1) drop-shadow(2px 4px 6px black);
+.helpButton:hover       ,   .menuButton:hover       ,   
+.muteButton:hover       ,   .shuffleButton:hover    ,
+.vidLink:hover          ,   .volSlider:hover        ,
+.closeHelpIcon:hover    ,   .closeMenuIcon:hover    ,   
+.closeCreditsIcon:hover ,   .dontShowPopup:hover    ,
+.creditsButton:hover    ,   .videoDebug:hover       ,
+.twitterLink:hover      ,   .kofiLink:hover {
+  filter: opacity(1);
 }
 
 /* #endregion */

@@ -71,15 +71,14 @@ const PopupHelp = props => {
   return (
     <div id="helpWrapper" className={ "helpWrapper" }>
       <div id="help" className={ "boxHelp" }>
-        <span className={ "closeHelpIcon" } onClick={function() {
+        <div className={ "closeHelpIcon" }>
+          <IconButton size='small' onClick={function() {
             document.getElementById("help").className="boxHelpClose";
             document.getElementById("helpWrapper").className="helpWrapperClose";
             setTimeout(function() { props.handleClose(); }, 650); }}>
-          <IconContext.Provider
-            value={{style: { verticalAlign: 'middle', scale: '0.75' }}}>
             <GrClose/>
-          </IconContext.Provider>
-        </span>
+          </IconButton>
+        </div>
         { props.content }
       </div>
     </div>
@@ -112,14 +111,13 @@ const PopupMenu = props => {
           }}>
           <b>Credits</b>
         </button>
-        <span className={ "closeMenuIcon" } onClick={function() {
+        <div className={ "closeMenuIcon" }> 
+          <IconButton size='small' onClick={function() {
             document.getElementById("menu").className="boxMenuClose";
             setTimeout(function() { props.handleClose(); }, 700); }}>
-          <IconContext.Provider
-            value={{style: { verticalAlign: 'middle', scale: '0.75' }}}>
             <GrClose/>
-          </IconContext.Provider>
-        </span>
+          </IconButton>
+        </div>
         { props.content }
       </div>
     </div>
@@ -131,14 +129,13 @@ const PopupCredits = props => {
   return (
     <div className={ "creditsWrapper" }>
       <div id="credits" className={ "boxCredits" }>
-        <span className={ "closeCreditsIcon" } onClick={function() {
+        <div className={ "closeCreditsIcon" }>
+          <IconButton size='small' onClick={function() {
             document.getElementById("credits").className="boxCreditsClose";
             setTimeout(function() { props.handleClose(); }, 700); }}>
-          <IconContext.Provider
-            value={{style: { verticalAlign: 'middle', scale: '0.75' }}}>
             <GrClose/>
-          </IconContext.Provider>
-        </span>
+          </IconButton>
+        </div>
         { props.content }
       </div>
     </div>
@@ -261,52 +258,48 @@ const Menu = ({ setCity }) => {
         content={
           <>
             <h3 className={ "helpBoxTitle" }>Japan Walkaround 🗾 日本に歩き回る</h3>
-            <ul>
-              <i>Lofi music with videos of Japan.</i>
-            </ul>
-            <ul>
+              <p style={{ textAlign: 'center', marginBottom: '20px' }}><i>Lofi music with videos of Japan.</i></p>
               <Typography
-              variant='subtitle2' 
-              sx={{ display: 'none',...(isMobile && { display: 'inline' }), 
-              paddingTop: '10px' }}>
-                <b>Mobile Browsers:</b> Changing city will pause the music and mute video audio.
-                If video is not playing, tap the button on the bottom right.
+              sx={{ display: 'none',...(isMobile && { display: 'inline' }) }}>
+                <p style={{ margin: '10px' }}><b>Mobile Browsers:</b> Changing cities will pause the music and re-mute 
+                video audio. If video is not playing, tap the button on the bottom right.</p>
               </Typography>
-            </ul>
-            <b>How to Use</b>
+            <h3 className={ "helpBoxTitle" }>How to Use</h3>
             <IconContext.Provider
               value={{style: { verticalAlign: 'middle'}}}>
-              <ul><b>Controls</b> are on the upper right of the screen.</ul>
-              <Typography sx={{ display: 'inline',...(isMobile && { display: 'none' })}}>
-              <ul>
+              <p style={{ marginBottom: '10px' }}><b>Controls</b> are on the upper right of the screen.</p>
+              <Typography sx={{ display: 'inline',...(isMobile && { display: 'none' }) }}>
+              <p style={{ marginBottom: '10px' }}>
                   Hover over the <b>music player</b> on the upper left to play/pause and view the current playlist.
                   Use the <b>slider</b> below the controls to change the music volume.
-              </ul>
+              </p>
               </Typography>
-              <Typography sx={{ display: 'inline',...(!isMobile && { display: 'none' })}}>
-              <ul>
+              <Typography sx={{ display: 'inline',...(!isMobile && { display: 'none' }) }}>
+              <p style={{ marginBottom: '10px' }}>
                   Tap the <b>music player</b> on the upper left to expand the music player window, 
                   play/pause the current song, and view the playlist.
-              </ul>
+              </p>
               </Typography>
-              <ul>
-                <FaQuestion/> <b>- Opens How to Use Menu</b>
-              </ul>
-              <ul>
-                <FaAlignJustify/> <b>- Opens Select City Menu</b>
-              </ul>
-              <ul>
-                <BiShuffle/> <b>- Changes Music Playlist</b>
-              </ul>
-              <ul>
-                <FaVolumeMute/> <b>- Unmutes/Mutes Video</b>
-              </ul>
-              <ul>
-                <FaYoutube/> <b>- Current Video Source</b>
-              </ul>
+              <div style={{ marginLeft: '25px' }}>
+                <p style={{ marginBottom: '10px' }}>
+                  <FaQuestion/> <b>- Opens How to Use Menu</b>
+                </p>
+                <p style={{ marginBottom: '10px' }}>
+                  <FaAlignJustify/> <b>- Opens Select City Menu</b>
+                </p>
+                <p style={{ marginBottom: '10px' }}>
+                  <BiShuffle/> <b>- Changes Music Playlist</b>
+                </p>
+                <p style={{ marginBottom: '10px' }}>
+                  <FaVolumeMute/> <b>- Unmutes/Mutes Video</b>
+                </p>
+                <p style={{ marginBottom: '10px' }}>
+                  <FaYoutube/> <b>- Current Video Source</b>
+                </p>
+              </div>
               <sub>
                 <BiCoffeeTogo  
-                  style={{ paddingBottom: 2, transform: 'scale(1.2)' }}/>
+                  style={{ paddingBottom: 2, transform: 'scale(1.2)', marginRight: '1px' }}/>
                   Want to buy me a <a href="https://ko-fi.com/thatguyedd" 
                                     target="_blank" rel="noopener noreferrer">
                 <b><u>coffee</u></b>
