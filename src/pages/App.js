@@ -9,7 +9,7 @@ import Select from '@mui/material/Select';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-import { FaAlignJustify, FaQuestion, FaVolumeMute, 
+import { FaAlignJustify, FaQuestion, FaMusic, FaVolumeMute, 
          FaYoutube, FaTwitter } from 'react-icons/fa';
 import { BiCoffeeTogo } from 'react-icons/bi';
 import { BiShuffle } from 'react-icons/bi';
@@ -25,16 +25,18 @@ function App() {
   const aomoriVideos    = ["kaB2sXvRqgY","MKyJdahuo-U"];
   const fukuokaVideos   = ["IzvoQ8fcgNU"];
   const fukushimaVideos = ["gOkDSGzt07M","z5KoGXkECPg"];
-  const hiroshimaVideos = ["NxXevpGGFBM","9UMn6CVizOw"];
+  const hiroshimaVideos = ["NxXevpGGFBM","9UMn6CVizOw","PE-P-nCSxHc"];
   const kobeVideos      = ["mHXp_o0beOE"];
-  const kyotoVideos     = ["Se15xH-IuMQ","rAeN7TdGq4o","yqf4pUWzP4Q","kd-OLM-6GRE","aaaxRIBPbXE"];
+  const kyotoVideos     = ["Se15xH-IuMQ","rAeN7TdGq4o","yqf4pUWzP4Q","kd-OLM-6GRE","aaaxRIBPbXE",
+                           "yIMDgPKgN1w","cubBJSNw59o"];
   const nagoyaVideos    = ["w0SJgbALym8","e1J6DYeJFas"];
   const naraVideos      = ["JO9RgHdg9S8"];
   const niigataVideos   = ["0lY98l3tOrM","tVCHthFQEUY","uxzdurP56U0"];
   const osakaVideos     = ["GJZLXiNOqqA","ThenfmXRbkQ","pu9BorxYjBQ","XHD2KtDXClc","ahZbCdrUVaQ"];
   const sapporoVideos   = ["aDCwZIUop6s","f6E1rTfwIWc","w46op-H-TsQ"];
   const sendaiVideos    = ["cHjKckxsOCs","Mo31lwe_gv4"];
-  const tokyoVideos     = ["YWPbaHNajbs","mHO8mJSZdJ0","s-rhii6znMU","0yEJWXLg7Qk","ZCVu6MDQZdg"];
+  const tokyoVideos     = ["YWPbaHNajbs","mHO8mJSZdJ0","s-rhii6znMU","0yEJWXLg7Qk","ZCVu6MDQZdg",
+                           "q-O_EUleC8c","IIz3Ey9vaLs","67Z1gPhB6oc"];
   const loading         = ["-pdVUsCqd2U"];
 
   cityVideos.set('Aomori'     ,   aomoriVideos);
@@ -270,7 +272,6 @@ const Menu = ({ setCity }) => {
               <p style={{ marginBottom: '10px' }}><b>Controls</b> are on the upper right of the screen.</p>
               <Typography sx={{ display: 'inline',...(isMobile && { display: 'none' }) }}>
               <p style={{ marginBottom: '10px' }}>
-                  Hover over the <b>music player</b> on the upper left to play/pause and view the current playlist.
                   Use the <b>slider</b> below the controls to change the music volume.
               </p>
               </Typography>
@@ -286,6 +287,9 @@ const Menu = ({ setCity }) => {
                 </p>
                 <p style={{ marginBottom: '10px' }}>
                   <FaAlignJustify/> <b>- Opens Select City Menu</b>
+                </p>
+                <p style={{ marginBottom: '10px' }}>
+                  <FaMusic/> <b>- Opens Music Player</b>
                 </p>
                 <p style={{ marginBottom: '10px' }}>
                   <BiShuffle/> <b>- Changes Music Playlist</b>

@@ -34,6 +34,14 @@
   animation-duration: 0.75s;
 }
 
+.musicWrapper {
+  z-index: 5;
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  background: none;
+}
+
 .menuWrapper {
   z-index: 5;
   position: fixed;
@@ -54,7 +62,7 @@
   z-index: 3;
   position: absolute;
   top: 3px;
-  right: 151px;
+  right: 188px;
   height: 30px;
   width: 30px;
   filter: opacity(0.3);
@@ -62,6 +70,17 @@
 }
 
 .menuButton {
+  z-index: 3;
+  position: absolute;
+  top: 3px;
+  right: 151px;
+  height: 30px;
+  width: 30px;
+  filter: opacity(0.3);
+  transition: all 0.2s;
+}
+
+.musicButton {
   z-index: 3;
   position: absolute;
   top: 3px;
@@ -122,7 +141,7 @@
   padding: 20px;
   padding-bottom: 50px;
   margin: 0;
-  background: rgb(211, 211, 211, 0.75);
+  background: rgba(255, 255, 255, 0.5);
   border: 1px solid black;
   border-radius: 10px;
   font-family: Arial, monospace;
@@ -141,7 +160,7 @@
   padding: 20px;
   padding-bottom: 50px;
   margin: 0;
-  background: rgb(211, 211, 211, 0.75);
+  background: rgba(255, 255, 255, 0.5);
   border: 1px solid black;
   border-radius: 10px;
   font-family: Arial, monospace;
@@ -175,7 +194,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 5px;
-  background: rgb(255,255,255,0.75);
+  background: rgb(255,255,255,0.5);
   border: 1.5px solid black;
   color: black;
   filter: opacity(0.3);
@@ -236,7 +255,7 @@
   right: 0%;
   height: 120px;
   min-height: 10vh;
-  width: 180px;
+  width: 218px;
   margin: 0;
   padding: 20px;
   background-color: rgba(255,255,255,0.5);
@@ -255,7 +274,7 @@
   right: 0%;
   height: 120px;
   min-height: 10vh;
-  width: 180px;
+  width: 218px;
   margin: 0;
   padding: 20px;
   background-color: rgba(255,255,255,0.5);
@@ -383,23 +402,28 @@
 
 /* #region <Music Player> */
 
-.music {
-  z-index: 3;
-  position: absolute;
-}
-
 .music iframe {
+  z-index: 5;
   position: fixed;
-  height: 70px;
+  top: 0%;
+  left: 0%;
+  height: 100vh;
   width: 300px;
-  filter: opacity(0.1);
-  transition: all 0.2s;
+  margin: 0;
+  animation-name: musicSlideIn;
+  animation-duration: 0.75s;
 }
 
-.music iframe:hover {
-  height: 450px;
+.musicClose iframe {
+  z-index: 5;
+  position: fixed;
+  top: 0%;
+  left: -300px;
+  height: 100vh;
   width: 300px;
-  filter: opacity(1) drop-shadow(2px 4px 6px black);
+  margin: 0;
+  animation-name: musicSlideOut;
+  animation-duration: 0.75s;
 }
 
 .volSlider {
@@ -407,7 +431,7 @@
   top: 40px;
   right: 2px;
   height: 10px;
-  width: 174px;
+  width: 212px;
   filter: opacity(0.3);
   position: fixed;
   background: white;
@@ -420,13 +444,23 @@
 
 @keyframes slideIn {
   from {transform: translateX(100%); }
-  to {transform: translateX(0); }
+  to {transform: translateX(0%); }
 }
 
 @keyframes slideOut {
-  from {transform: translateX(0); }
+  from {transform: translateX(0%); }
   to {transform: translateX(100%); }
 }
+
+@keyframes musicSlideIn {
+  from {transform: translateX(-100%); }
+  to {transform: translateX(0%); }
+}
+
+@keyframes musicSlideOut {
+  from {transform: translateX(100%); }
+  to {transform: translateX(0%); } 
+} 
 
 @keyframes fadeInHelp {
   from {transform: translateY(25%); opacity: 0;}
@@ -452,13 +486,15 @@
 
 /* #region <Hover Stylings> */
 
-.helpButton:hover       ,   .menuButton:hover       ,   
-.muteButton:hover       ,   .shuffleButton:hover    ,
-.vidLink:hover          ,   .volSlider:hover        ,
+.helpButton:hover       ,   .menuButton:hover       ,
+.musicButton:hover      ,   .muteButton:hover       ,   
+.shuffleButton:hover    ,   .vidLink:hover          ,   
+.volSlider:hover        ,
 .closeHelpIcon:hover    ,   .closeMenuIcon:hover    ,   
 .closeCreditsIcon:hover ,   .dontShowPopup:hover    ,
 .creditsButton:hover    ,   .videoDebug:hover       ,
-.twitterLink:hover      ,   .kofiLink:hover {
+.twitterLink:hover      ,  
+.kofiLink:hover {
   filter: opacity(1);
 }
 
@@ -481,11 +517,11 @@
     top: 60px;
     right: 0px;
     height: 120px;
-    width: 180px;
+    width: 218px;
     min-height: 10vh;
     margin: 0;
     padding: 20px;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     border: 1px solid black;
     font-family: Arial, monospace;
@@ -496,35 +532,34 @@
     scale: 1.3;
   }
 
-  .music {
-    z-index: 3;
-    position: absolute;
-  }
-
   .music iframe {
+    z-index: 5;
     position: fixed;
-    height: 110px;
-    width: 200px;
-    filter: opacity(0.1);
-    transition: all 0.2s;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 225px;
+    margin: 0;
+    animation-name: musicSlideIn;
+    animation-duration: 0.75s;
   }
 
-  .music iframe:hover {
-    height: 75%;
-    width: 200px;
-    filter: opacity(1) drop-shadow(2px 4px 6px black);
+  .musicClose iframe {
+    z-index: 5;
+    position: fixed;
+    top: 0%;
+    left: -225px;
+    height: 100vh;
+    width: 225px;
+    margin: 0;
+    animation-name: musicSlideOut;
+    animation-duration: 0.75s;
   }
 }
 
 @media screen and (max-width: 1224px) and (orientation: landscape) {
   .videoResponsive iframe {
     scale: 1.3;
-  }
-
-  .music iframe:hover {
-    height: 100%;
-    width: 200px;
-    filter: opacity(1) drop-shadow(2px 4px 6px black);
   }
 }
 
@@ -573,7 +608,7 @@ and
     top: 60px;
     right: 0px;
     height: 120px;
-    width: 180px;
+    width: 218px;
     min-height: 10vh;
     margin: 0;
     padding: 20px;
@@ -588,23 +623,28 @@ and
     scale: 1.3;
   }
 
-  .music {
-    z-index: 3;
-    position: absolute;
-  }
-
   .music iframe {
+    z-index: 5;
     position: fixed;
-    height: 110px;
-    width: 200px;
-    filter: opacity(0.1);
-    transition: all 0.2s;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 225px;
+    margin: 0;
+    animation-name: musicSlideIn;
+    animation-duration: 0.75s;
   }
-
-  .music iframe:hover {
-    height: 75%;
-    width: 200px;
-    filter: opacity(1) drop-shadow(2px 4px 6px black);
+  
+  .musicClose iframe {
+    z-index: 5;
+    position: fixed;
+    top: 0%;
+    left: -225px;
+    height: 100vh;
+    width: 225px;
+    margin: 0;
+    animation-name: musicSlideOut;
+    animation-duration: 0.75s;
   }
 }
 
@@ -639,12 +679,7 @@ and (orientation: landscape) {
   .videoResponsive iframe {
     scale: 1.3;
   }
-
-  .music iframe:hover {
-    height: 100%;
-    width: 200px;
-    filter: opacity(1) drop-shadow(2px 4px 6px black);
-  }
 }
 
 /* #endregion */
+
