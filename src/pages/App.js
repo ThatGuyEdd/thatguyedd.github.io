@@ -275,12 +275,6 @@ const Menu = ({ setCity }) => {
                   Use the <b>slider</b> below the controls to change the music volume.
               </p>
               </Typography>
-              <Typography sx={{ display: 'inline',...(!isMobile && { display: 'none' }) }}>
-              <p style={{ marginBottom: '10px' }}>
-                  Tap the <b>music player</b> on the upper left to expand the music player window, 
-                  play/pause the current song, and view the playlist.
-              </p>
-              </Typography>
               <div style={{ marginLeft: '25px' }}>
                 <p style={{ marginBottom: '10px' }}>
                   <FaQuestion/> <b>- Opens How to Use Menu</b>
