@@ -28,7 +28,7 @@ export const BGM = React.memo(() => {
 
     let randPlaylist = useRef(playlist[Math.floor(Math.random() * playlist.length)]);
 
-    const[musicOpen, setMusicOpen] = useState(true);
+    const[musicOpen, setMusicOpen] = useState(false);
     const[shuffle, setShuffle] = useState(randPlaylist.current);
 
     const toggleMusic = () => {
@@ -89,19 +89,19 @@ export const BGM = React.memo(() => {
           onClick={
             function() {
             if(musicOpen) {
-            toggleMusic();
-            document.getElementById("musicBox").className="musicClose";
-            }
-            else {
-            toggleMusic();
-            document.getElementById("musicBox").className="music";
-            }
+              toggleMusic();
+              document.getElementById("musicBox").className="musicClose";
+              }
+              else {
+              toggleMusic();
+              document.getElementById("musicBox").className="music";
+              }
             }
           }>
           <FaMusic style={{ transform: 'scale(0.85)' }}/>
         </IconButton>
       </div>
-        <div id="musicBox" className={ "music" }>
+        <div id="musicBox" className={ "musicClose" }>
           <iframe id="bgm" title="soundcloud"
             allow="autoplay" 
             src={
